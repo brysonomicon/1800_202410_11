@@ -2,13 +2,13 @@
 
 ## 1. Project Description
 State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+This is a project about flash cards.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
-* ...
+* I am Phyo Thu Kha. I am writing something.
 * I am Richard, contributor to the Brysonomicon. woo
-* I'm Bryson, the author of the Brysonomicon. We be flash cardin'.
+* I'm Bryson, the author of the Brysonomicon. We be flash cardin' edit. edit2
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
