@@ -1,27 +1,33 @@
+/*  #f8f9f2(white) #09181c(blue) #f2ab2b(gold) #c83742(red) */
 /* MOBILE FIRST MEDIA QUERY */
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
 
 html {
-    font-family: "Mulish", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
+    font-family: "Patrick Hand SC", cursive;
+    font-weight: 400;
     font-style: normal;
-    background-color: #09181C;
+    background-color: black;
+}
+
+body {
+    display:grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 98vh;
 }
 
 /* NAVBAR RELATED */
+/* #region */
 .navbar {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     background-color: #F2AB2B;
-    padding: 10px;
+    padding: 20px;
 }
 
 .navbar-logo img {
-    width: 50px;
-    /* Adjust size as needed */
+    width: 75px;
 }
 
 .navbar-toggle {
@@ -34,7 +40,7 @@ html {
 .navbar-toggle .bar {
     width: 25px;
     height: 3px;
-    background-color: #333;
+    background-color: #09181c;
 }
 
 .navbar-menu {
@@ -45,11 +51,26 @@ html {
 
 .navbar-links,
 .navbar-search button {
-    display: block;
+    display: flex;
+    justify-content: center;
     text-align: center;
-    margin: 5px 0;
+    margin: 7px 0;
     text-decoration: none;
     color: #C83742;
+}
+
+.navbar-links {
+    border: none;
+    background-color: #f8f9f2;
+    padding: 10px 0 10px 0;
+    margin-right: 40%;
+    margin-left: 30%;
+    color: #09181C;
+    border-radius: 25px;
+}
+
+.navbar-links:hover {
+    background-color: #C83742;
 }
 
 .search-btn {
@@ -67,7 +88,38 @@ html {
 .navbar-search input {
     padding: 5px;
     margin-right: 5px;
-    /* Spacing between input and button */
+}
+/* #endregion */
+
+/* MAIN CONTENT */
+/* #region */
+main {
+    grid-row: 2;
+    color: #f8f9f2;
+}
+
+.welcome {
+    padding: 10% 0 0 5%;
+    color: #f8f9f2;
+}
+
+.login-button {
+    padding: 10px 20px 10px 20px;
+    background-color: #f8f9f2;
+}
+.login-button:hover {
+    background-color:#F2AB2B;
+}
+/* #endregion */
+
+
+/* da foot */
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    grid-row: 3;
+    color: #f8f9f2;
 }
 
 /* MEDIA QUERY FOR LARGER SCREENS */
@@ -93,6 +145,14 @@ html {
 
     .navbar-links {
         margin-left: 20px;
+        padding: 0px;
+        border-radius: 0px;
+        background-color: #F2AB2B;
+    }
+
+    .navbar-links:hover {
+        background-color: #F2AB2B;
+        color: #f8f9f2;
     }
 
     .navbar-search {
@@ -102,6 +162,5 @@ html {
 
     .navbar-search input {
         margin-right: 10px;
-        /* Adjust spacing for desktop */
     }
 }

@@ -2,68 +2,65 @@
 <html lang="en">
 
 <head>
-  <title>My BCIT Project</title>
-  <meta name="comp1800 template" content="My 1800 App">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Cardin'</title>
+    <link rel="stylesheet" href="./styles/styles.css" type="text/css">
+    <link rel="icon" type="image/ico" href="./images/favicon.ico">
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Bootstrap Library CSS CDN go here -->
-  <!-- Boostrap Library JS CDN  go here -->
-
-  <!-- Other libraries go here -->
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link href="./styles/customstyle.css" type="text/css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-
-  <!-- Firebase 8 library related CSS, JS, JQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-
+    <!-- FIREBASEE SCRIPTS AND LINKS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 </head>
 
 <body>
-  <div class="p-5 mb-4 bg-light rounded-3">
-    <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold">Welcome to FlashCardin'!</h1>
-
-      <button class="btn btn-danger btn-lg" type="button" onclick="window.location.href='login.html';">Login</button>
-
-
-      <!-- Add an onclick attribute to define click event handler -->
-    </div>
-    <div class="container">
-      <footer class="py-3 my-4">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Terms and Conditions</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Flashbang</a></li>
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">
+            <img src="./images/fcLogo.png" alt="Logo">
+        </a>
+        <div class="navbar-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="#" class="navbar-links">Home</a></li>
+            <li><a href="#" class="navbar-links">Browse</a></li>
+            <li><a href="#" class="navbar-links">Cards</a></li>
+            <li class="navbar-item">
+                <form class="navbar-search">
+                    <input type="search" placeholder="Search" aria-label="Search">
+                    <button type="submit" class="search-btn">Search</button>
+                </form>
+            </li>
+            <li><a href="#" class="navbar-links">Logout</a></li>
         </ul>
-        <p class="text-center text-muted">© 2024 Flash Cardin', Inc</p>
-      </footer>
-    </div>
+    </nav>
+
+    <main>
+        <div class="welcome">
+            <h1>Welcome to FlashCardin'!</h1>
+
+            <button class="login-button" type="button"
+                onclick="window.location.href='login.html';">Login</button>
+        </div>
+        <!-- Cards and stuff can go in this container-->
+    </main>
+
+    <footer>
+        <p>© 2024 Flash Cardin', Inc</p>
+    </footer>
 
 
-    <!-- DO NOT DELETE -->
+    <!-- SCRIPTS -->
     <script src="./scripts/firebaseAPI_flashcardin.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
-    <script>
-      logout();       //make sure user is logged out
-    </script>
-
 </body>
 
 </html>
