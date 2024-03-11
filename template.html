@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flash Cardin'</title>
+    <title>Flash Cardin' Main</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./styles/styles.css" type="text/css">
     <link rel="icon" type="image/ico" href="./images/favicon.ico">
 
-    <!-- FIREBASEE SCRIPTS AND LINKS-->
+
+    <!-- FIREBASE SCRIPTS AND LINKS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -38,26 +39,22 @@
                     <button type="submit" class="search-btn">Search</button>
                 </form>
             </li>
-            <li><a href="#" class="navbar-links">Logout</a></li>
+            <li><a href="../index.html" class="navbar-links">Logout</a></li>
         </ul>
     </nav>
 
     <main>
-        <div class="welcome">
-            <h1>Welcome to FlashCardin'!</h1>
-            <button class="login-button" type="button" onclick="window.location.href='login.html';">Login</button>
-        </div>
-        <!-- Cards and stuff can go in this container-->
     </main>
 
     <footer>
         <p>© 2024 Flash Cardin', Inc</p>
     </footer>
 
-
-    <!-- SCRIPTS -->
+    <!-- DO NOT DELETE. -->
     <script src="./scripts/firebaseAPI_flashcardin.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/authentication.js"></script>
+    <script src="./scripts/main.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
 
