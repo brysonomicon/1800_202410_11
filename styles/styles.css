@@ -118,17 +118,17 @@ main {
 /* (Mobile) Cards Stylin Starts Here */
 .cards-column {
     display: block;
-    margin-bottom: 20px;
-    border: red 5px solid;
+    margin-bottom: 10px;
 }
 
 .card {
     padding: 16px;
+    background-color: #f2ab2b;
 }
 
 .button{
-    background-color: #F2AB2B;
-    color: black;
+    background-color: black;
+    color: #f8f9f2;
     padding: 10px 20px;
     cursor: pointer;
     text-decoration: none;
@@ -191,28 +191,25 @@ footer {
 
     /* (Large Screen) Cards Styling Start Here */
     .cards-container {
-        border: red 5px solid;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
     }
     .cards-column {
-        border: blue 5px solid;
         width: 45%;
         height: 200px;
-        margin: 10px;
     }
     .card {
-        margin: 10px;
+        margin: 4%;
+        background-color: #F2AB2B;
     }
     .button{
-        background-color: #F2AB2B;
-        color: black;
+        background-color: black;
+        color: #f8f9f2;
         padding: 10px 20px;
         cursor: pointer;
         text-decoration: none;
         text-align: center;
     }
-
     /* Cards Styling End Here */
 }
