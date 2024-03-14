@@ -30,3 +30,4 @@ window.addEventListener('resize', function () {
     menu.style.flexDirection = "column";
   }
 });
+
