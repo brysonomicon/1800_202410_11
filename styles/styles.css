@@ -116,6 +116,7 @@ main {
 /* #endregion */
 
 /* (Mobile) Cards Stylin Starts Here */
+/* #region */
 .cards-column {
     display: block;
     margin-bottom: 10px;
@@ -126,7 +127,7 @@ main {
     background-color: #f2ab2b;
 }
 
-.button{
+.button {
     background-color: black;
     color: #f8f9f2;
     padding: 10px 20px;
@@ -135,8 +136,40 @@ main {
     text-align: center;
 }
 
+/* #endregion */
 /* Cards Styling End Here */
 
+/* Create a Card Form Style */
+/* #region */
+.create-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%; 
+}
+
+.card-form-group label {
+    width: 150px; 
+    margin-right: 10px;
+    text-align: right;
+}
+
+.card-form-group input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #f8f9f2;
+    border-radius: 4px;
+}
+
+/* #endregion */
 /* da foot */
 footer {
     display: flex;
@@ -195,15 +228,18 @@ footer {
         flex-wrap: wrap;
         justify-content: flex-start;
     }
+
     .cards-column {
         width: 45%;
         height: 200px;
     }
+
     .card {
         margin: 4%;
         background-color: #F2AB2B;
     }
-    .button{
+
+    .button {
         background-color: black;
         color: #f8f9f2;
         padding: 10px 20px;
@@ -211,5 +247,6 @@ footer {
         text-decoration: none;
         text-align: center;
     }
+
     /* Cards Styling End Here */
 }
