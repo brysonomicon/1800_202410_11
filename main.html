@@ -46,11 +46,31 @@
 
     <main>
         <div class="container-fluid bg-light text-dark p-5"></div>
-        <h1 class="display-4">Welcome Back, <span id="name-goes-here">friend</span></h1>
+        <h1 class="display-4">Welcome Back, <span id="name-goes-here"></span></h1>
         <hr>
         </div>
 
+        <h1>Classes</h1>
+
         <!-- Cards Start Here -->
+        <div class="cards-container">
+
+            <!-- Here is the container for cards  -->
+            <div class="cards-column">
+                <div id ="flashcards-go-here" class="card"></div>
+            </div>
+          </div>
+
+          <!-- Templates for general use, not displayed -->
+          <template id="classCardTemplate">
+            <div class="cards-column">
+              <div class="card-body">
+                <h2 class="card-class">Card Title</h2>
+                <br />
+                <a class="btn btn-primary card-href" id="review">Review</a>
+              </div>
+            </div>
+          </template>
         
         <!-- Cards End Here -->
     </main>
@@ -65,7 +85,7 @@
     <script src="./scripts/authentication.js"></script>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/script.js"></script>
-    <script src="./scripts/subjects.js"></script>
+    <!-- <script src="./scripts/subjects.js"></script> -->
 </body>
 
 </html>

@@ -1,29 +1,32 @@
-------------------------------------------------------------------------------
-Input parameter is a string representing the collection we are reading from
-------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
+// Input parameter is a string representing the collection we are reading from
+// ------------------------------------------------------------------------------
 function displayCardsDynamically(collection) {
-    let cardTemplate = document.getElementById("subjectTemplate"); // Retrieve the HTML element with the ID "subjectTemplate" and store it in the cardTemplate variable. 
+    let cardTemplate = document.getElementById("classCardTemplate"); // Retrieve the HTML element with the ID "classCardTemplate" and store it in the cardTemplate variable. 
 
-    db.collection(collection).get()   //the collection called "subjects"
-        .then(allSubjects=> {
+    db.collection(collection).get()   //the collection called "classes"
+
+        .then(allClasses=> {
             //var i = 1;  //Optional: if you want to have a unique ID for each subject
-            allSubjects.forEach(doc => { //iterate thru each doc
-                var title = doc.data().name;       // get value of the "name" key
-                // var details = doc.data().details;  // get value of the "details" key
-				// var hikeCode = doc.data().code;    //get unique ID to each hike to be used for fetching right image
-                // var hikeLength = doc.data().length; //gets the length field
+            allClasses.forEach(doc => { //iterate thru each doc
+                var title = doc.data().class;       // get value of the "cardClass" key
+                var cardCh = doc.data().chapter;  // get value of the "cardChapter" key
+				// var chQuestion = doc.data().question;    // get value of the "question" key
+                // var chAnswer = doc.data().answer; // get value of the "answer" key
+                var docID = doc.id;
                 let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
 
                 //update title and text and image
-                newcard.querySelector('.chapterTitle').innerHTML = title;
-                // newcard.querySelector('.card-length').innerHTML = hikeLength +"km";
-                newcard.querySelector('.card-text').innerHTML = details;
-                // newcard.querySelector('.card-image').src = `./images/${hikeCode}.jpg`; //Example: NV01.jpg
+                newcard.querySelector('.card-class').innerHTML = title;
+                newcard.querySelector('.card-chapter').innerHTML = cardCh;
+                newcard.querySelector('a').href = "eachClass.html?docID="+docID;
+                // newcard.querySelector('question').innerHTML = chQuestion;
+                // newcard.querySelector('answer').innerHTML = chAnswer;
 
                 //Optional: give unique ids to all elements for future use
-                // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-                // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-                // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+                // newcard.querySelector('topic').setAttribute("id", "ctitle" + i);
+                // newcard.querySelector('chapter').setAttribute("id", "ctext" + i);
+                // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i); <-- for imgs
 
                 //attach to gallery, Example: "hikes-go-here"
                 document.getElementById(collection + "-go-here").appendChild(newcard);
@@ -33,4 +36,4 @@ function displayCardsDynamically(collection) {
         })
 }
 
-displayCardsDynamically("subjects");  //input param is the name of the collection
+displayCardsDynamically("classes");  //input param is the name of the collection
