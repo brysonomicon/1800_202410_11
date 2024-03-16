@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flash Cardin' Main</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles/styles.css" type="text/css">
+    <link rel="icon" type="image/ico" href="./images/favicon.ico">
+
+
+    <!-- FIREBASE SCRIPTS AND LINKS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">
+            <img src="./images/fcLogo.png" alt="Logo">
+        </a>
+        <div class="navbar-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="#" class="navbar-links">Home</a></li>
+            <li><a href="#" class="navbar-links">Browse</a></li>
+            <li><a href="#" class="navbar-links">Library</a></li>
+            <li class="navbar-item">
+                <form class="navbar-search">
+                    <input type="search" placeholder="Search" aria-label="Search">
+                    <button type="submit" class="search-btn">Search</button>
+                </form>
+            </li>
+            <li><a href="../index.html" class="navbar-links">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="review-cards">
+            <h2><span id="className">Class Name</span></h2>
+            <h2><span id="chapterName">Chapter Name</span></h2>
+            <h2><span id="question">Question</span></h2>
+            <h2><span id="answer">Answer</span></h2>
+            <h2><span id="end"></span></h2>
+            <button type="button" id="showAnswer">Show Answer</button>
+            <button type="button" id="clearAnswer">Clear</button>
+            <button type="button" id="nextButton">Next</button>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2024 Flash Cardin', Inc</p>
+    </footer>
+
+    <!-- DO NOT DELETE. -->
+    <script src="./scripts/firebaseAPI_flashcardin.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/authentication.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/reviewTesting.js"></script>
+</body>
+
+</html>
