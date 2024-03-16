@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Flash Cardin'</title>
+    <title>Flash Cardin' Main</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles/styles.css" type="text/css">
     <link rel="icon" type="image/ico" href="./images/favicon.ico">
 
 
@@ -15,7 +17,6 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <link rel="stylesheet" href="./styles/styles.css" type="text/css">
 </head>
 
 <body>
@@ -43,16 +44,46 @@
         </ul>
     </nav>
 
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
+    <main>
+        <div class="container-fluid bg-light text-dark p-5"></div>
+        <h1 class="display-4">Welcome Back, <span id="name-goes-here"></span></h1>
+        <hr>
+        </div>
+
+        <h1>Classes</h1>
+
+        <!-- Cards Start Here -->
+        <div class="cards-container">
+
+            <!-- Here is the container for cards  -->
+            <div class="cards-column">
+                <div id ="flashcards-go-here" class="card"></div>
+            </div>
+          </div>
+
+          <!-- Templates for general use, not displayed -->
+          <div id="classCardTemplate">
+            <div class="cards-column">
+              <div class="card-body">
+                <h2 class="card-class">Card Title</h2>
+                <br />
+                <a class="btn btn-primary card-href" id="review">Review</a>
+              </div>
+            </div>
+        </div>
+        
+        <!-- Cards End Here -->
+    </main>
 
     <footer>
         <p>© 2024 Flash Cardin', Inc</p>
     </footer>
 
-
+    <!-- DO NOT DELETE. -->
     <script src="./scripts/firebaseAPI_flashcardin.js"></script>
-    <script src="./scripts/auth.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/script.js"></script>
+    <!-- <script src="./scripts/subjects.js"></script> -->
 </body>
 
 </html>

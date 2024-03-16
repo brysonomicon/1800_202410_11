@@ -22,7 +22,7 @@ insertNameFromFirestore();
 
 // Reads collection of classes for our cardTemplate to dynamically generate on landing screen its document contents on landing page
 
-function displayCardsDynamically(collection) {
+function displayClasses(collection) {
     let cardTemplate = document.getElementById("classCardTemplate"); // Retrieve the HTML element with the ID "classCardTemplate" and store it in the cardTemplate variable. 
 
     db.collection("classes").get()   //the collection called "classes"
@@ -30,8 +30,8 @@ function displayCardsDynamically(collection) {
         .then(allClasses=> {
             //var i = 1;  //Optional: if you want to have a unique ID for each subject
             allClasses.forEach(doc => { //iterate thru each doc
-                var title = doc.data(); // get key name of each class
-                var docID = doc.id;
+                const title = doc.data(); // get key name of each class
+                const docID = doc.id;
                 let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
                 
                 // var cardCh = doc.data().chapter;  // get value of the "cardChapter" key
@@ -54,11 +54,11 @@ function displayCardsDynamically(collection) {
         })
 }
 
-displayCardsDynamically("classes");  //input param is the name of the collection
+displayClasses();  //input param is the name of the collection
 
 
 // Reads collection of chapters for a class after clicking review on that said class.
-function displayCardsDynamically(collection) {
+function displayChapters(collection) {
     let cardTemplate = document.getElementById("chapterCardTemplate"); // Retrieve the HTML element with the ID "chapterCardTemplate" and store it in the cardTemplate variable. 
 
     db.collection("chapters").get()   //the collection called "chapters"
@@ -82,21 +82,21 @@ function displayCardsDynamically(collection) {
         })
 }
 
-displayCardsDynamically("chapters");  //input param is the name of the collection
+displayChapters();  //input param is the name of the collection
 
 
 // Reads collection of flashcards for a chapter after clicking review on that said class.
-function displayCardsDynamically(collection) {
+function displayFlashcards(collection) {
     let cardTemplate = document.getElementById("flashCardTemplate"); // Retrieve the HTML element with the ID "chapterCardTemplate" and store it in the cardTemplate variable. 
     db.collection("flashcards").get()   //the collection called "flashcards"
         .then(allFlashcards=> {
             //var i = 1;  //Optional: if you want to have a unique ID for each subject
             allFlashcards.forEach(doc => { //iterate thru each doc
-                var classTitle = doc.data().class; // get the "chapter" key
-                var classCh = doc.data().chapter;
-                var question = doc.data().question;
-                var answer = doc.data().answer;
-                var docID = doc.id;
+                const classTitle = doc.data().class; // get the "chapter" key
+                const classCh = doc.data().chapter;
+                const question = doc.data().question;
+                const answer = doc.data().answer;
+                const docID = doc.id;
                 let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
                 
                 //update title and text
@@ -118,4 +118,14 @@ function displayCardsDynamically(collection) {
         })
 }
 
-displayCardsDynamically("flashcards");  //input param is the name of the collection
+displayFlashcards();  //input param is the name of the collection
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        // User is signed in, so you can allow them access to the page
+        console.log("User is signed in:", user);
+    } else {
+        // No user is signed in, redirect them to the login page
+        window.location.assign("login.html");
+    }
+});
