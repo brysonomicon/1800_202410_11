@@ -31,13 +31,16 @@ window.addEventListener('resize', function () {
   }
 });
 
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-      // User is signed in, so you can allow them access to the page
-      console.log("User is signed in:", user);
+    // User is signed in, so you can allow them access to the page
+    console.log("User is signed in:", user);
   } else {
-      // No user is signed in, redirect them to the login page
-      window.location.assign("login.html");
+    // No user is signed in, redirect them to the login page
+    window.location.assign("login.html");
   }
 });
+
+
+
 
