@@ -19,8 +19,11 @@ function insertNameFromFirestore() {
 
 insertNameFromFirestore();
 
+<<<<<<< HEAD
 //This function now gets the userID of the logged in user and uses it to display their saved card sets. If there are no saved card sets, it serves a link to go to Browse and suggests the user save some sets.
 
+=======
+>>>>>>> 87a283fc665002b2ab067775a72c923491e02517
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         //Confirms a user is logged in. Otherwise they would be redirected to login.html
