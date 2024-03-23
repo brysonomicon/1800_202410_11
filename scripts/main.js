@@ -19,27 +19,68 @@ function insertNameFromFirestore() {
 
 insertNameFromFirestore();
 
-<<<<<<< HEAD
-//This function now gets the userID of the logged in user and uses it to display their saved card sets. If there are no saved card sets, it serves a link to go to Browse and suggests the user save some sets.
 
-=======
->>>>>>> 87a283fc665002b2ab067775a72c923491e02517
-firebase.auth().onAuthStateChanged(function(user) {
+//When the user hits the landing page, this updates their role to "standard" will need to be adjusted when the "power user" role is setup, otherwise it will overwrite and "force" the user to be standard whenever they log in.
+// unless we make "power user" a completely different field that gives permissions, which doesn't seem like a terrible option. everyone becomes a standard user just by logging in, this way we could limit read permissions to logged in 
+// users and delineate write permissions depending on what the user is trying to write. standard users could make cards and update their profile information, while power users would be able to update cards and verify sets.
+firebase.auth().onAuthStateChanged(user => {
     if (user) {
-        //Confirms a user is logged in. Otherwise they would be redirected to login.html
-        console.log("User is signed in:", user);
+        // Check if this is a new user by attempting to get their user document
+        const userRef = firebase.firestore().collection('users').doc(user.uid);
+        userRef.get().then(doc => {
+            if (doc.exists) {
 
-        // userid of the logged in user
+                userRef.update({
+                    role: 'Standard',
+                }).then(() => {
+                    console.log("User role set to Standard");
+                }).catch(error => {
+                    console.error("Error setting user role:", error);
+                });
+            }
+        });
+    }
+});
+
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+
+        const userPointer = firebase.firestore().collection('users').doc(user.uid);
+        userPointer.get().then(doc => {
+            if (doc.exists) {
+
+                const userData = doc.data();
+                const userRole = userData.role || 'Standard';
+
+                document.getElementById('user-role-display').textContent = userRole;
+            } else {
+                console.log("User document not found");
+
+            }
+        }).catch(error => {
+
+        });
+    } else {
+        console.log("Not signed in.");
+
+    }
+});
+
+
+//This function now gets the userID of the logged in user and uses it to display their saved card sets. If there are no saved card sets, it serves a link to go to Browse and suggests the user save some sets.
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        //verifies user is logged in and creates an object of their id
+        console.log("User is signed in:", user);
         const userId = user.uid;
+        //checks the userid against the savedclasses metadata
         firebase.firestore().collection('users').doc(userId).get().then((userDoc) => {
             const userData = userDoc.data();
-            const savedClasses = userData.savedClasses; // Get the array of saved class IDs
+            const savedClasses = userData.savedClasses;
 
+            //if the user has saved classes, display them
             if (savedClasses && savedClasses.length > 0) {
-                // Clear the container before populating it with saved classes
                 document.querySelector('.cards-container').innerHTML = '';
-
-                // Fetch each saved class and populate the card
                 savedClasses.forEach(classId => {
                     firebase.firestore().collection('classes').doc(classId).get().then((classDoc) => {
                         const classData = classDoc.data();
@@ -56,16 +97,19 @@ firebase.auth().onAuthStateChanged(function(user) {
                         document.querySelector('.cards-container').innerHTML += cardContent;
                     });
                 });
+                // if there are saved classes, show the browse button
+                document.getElementById('browse-button').style.display = '';
             } else {
-                // Handle case where there are no saved classes
-                document.querySelector('.cards-container').innerHTML = '<p class="no-save-found">No saved classes found. Why not <a href="browse.html" class="action-button">Browse Card Sets</a>browse some decks</a> to save?</p>';
+                document.querySelector('.cards-container').innerHTML = '<p class="no-save-found">No saved classes found. <br>Why not <a href="browse.html" class="action-button">Browse Card Sets</a> to save?</p>';
+                // hide the hardcoded browse button because it shows up in the message when there are no saved classes to display
+                document.getElementById('browse-button').style.display = 'none';
             }
         }).catch(error => {
             console.error("Error fetching user's saved classes:", error);
         });
 
     } else {
-        // No user is signed in, redirect them to the login page
         window.location.assign("login.html");
     }
 });
+
