@@ -19,111 +19,48 @@ function insertNameFromFirestore() {
 
 insertNameFromFirestore();
 
-
-// Reads collection of classes for our cardTemplate to dynamically generate on landing screen its document contents on landing page
-
-function displayClasses(collection) {
-    let cardTemplate = document.getElementById("classCardTemplate"); // Retrieve the HTML element with the ID "classCardTemplate" and store it in the cardTemplate variable. 
-
-    db.collection("classes").get()   //the collection called "classes"
-
-        .then(allClasses=> {
-            //var i = 1;  //Optional: if you want to have a unique ID for each subject
-            allClasses.forEach(doc => { //iterate thru each doc
-                const title = doc.data(); // get key name of each class
-                const docID = doc.id;
-                let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
-                
-                // var cardCh = doc.data().chapter;  // get value of the "cardChapter" key
-				// var chQuestion = doc.data().question;    // get value of the "question" key
-                // var chAnswer = doc.data().answer; // get value of the "answer" key
-                
-                //update title and text
-                newcard.querySelector('.card-class').innerHTML = title;
-                newcard.querySelector('a').href = "eachClass.html?docID="+docID;
-               
-                // newcard.querySelector('.card-chapter').innerHTML = cardCh;
-                // newcard.querySelector('question').innerHTML = chQuestion;
-                // newcard.querySelector('answer').innerHTML = chAnswer;
-
-                //attach to gallery, Example: "classes-go-here"
-                document.getElementById(collection + "-go-here").appendChild(newcard);
-
-                //i++;   //Optional: iterate variable to serve as unique ID
-            })
-        })
-}
-
-displayClasses();  //input param is the name of the collection
-
-
-// Reads collection of chapters for a class after clicking review on that said class.
-function displayChapters(collection) {
-    let cardTemplate = document.getElementById("chapterCardTemplate"); // Retrieve the HTML element with the ID "chapterCardTemplate" and store it in the cardTemplate variable. 
-
-    db.collection("chapters").get()   //the collection called "chapters"
-
-        .then(allChapters=> {
-            //var i = 1;  //Optional: if you want to have a unique ID for each subject
-            allChapters.forEach(doc => { //iterate thru each doc
-                var chTitle = doc.data().cardChapter; // get the value of the "chapter" key
-                var docID = doc.id;
-                let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
-                
-                //update title and text
-                newcard.querySelector('.card-ch').innerHTML = chTitle;
-                newcard.querySelector('a').href = "eachChapter.html?docID="+docID;
-
-                //attach to gallery, Example: "chapters-go-here"
-                document.getElementById(collection + "-go-here").appendChild(newcard);
-
-                //i++;   //Optional: iterate variable to serve as unique ID
-            })
-        })
-}
-
-displayChapters();  //input param is the name of the collection
-
-
-// Reads collection of flashcards for a chapter after clicking review on that said class.
-function displayFlashcards(collection) {
-    let cardTemplate = document.getElementById("flashCardTemplate"); // Retrieve the HTML element with the ID "chapterCardTemplate" and store it in the cardTemplate variable. 
-    db.collection("flashcards").get()   //the collection called "flashcards"
-        .then(allFlashcards=> {
-            //var i = 1;  //Optional: if you want to have a unique ID for each subject
-            allFlashcards.forEach(doc => { //iterate thru each doc
-                const classTitle = doc.data().class; // get the "chapter" key
-                const classCh = doc.data().chapter;
-                const question = doc.data().question;
-                const answer = doc.data().answer;
-                const docID = doc.id;
-                let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
-                
-                //update title and text
-                newcard.querySelector('.card-flash').innerHTML = classTitle;
-                newcard.querySelector('.card-ch').innerHTML = classCh;
-                newcard.querySelector('.card-q').innerHTML = question;
-                newcard.querySelector('.card-ans').innerHTML = answer;
-                newcard.querySelector('a').href = "eachCard.html?docID="+docID;
-               
-                // newcard.querySelector('.card-chapter').innerHTML = cardCh;
-                // newcard.querySelector('question').innerHTML = chQuestion;
-                // newcard.querySelector('answer').innerHTML = chAnswer;
-
-                //attach to gallery, Example: "classes-go-here"
-                document.getElementById(collection + "-go-here").appendChild(newcard);
-
-                //i++;   //Optional: iterate variable to serve as unique ID
-            })
-        })
-}
-
-displayFlashcards();  //input param is the name of the collection
+//This function now gets the userID of the logged in user and uses it to display their saved card sets. If there are no saved card sets, it serves a link to go to Browse and suggests the user save some sets.
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        // User is signed in, so you can allow them access to the page
+        //Confirms a user is logged in. Otherwise they would be redirected to login.html
         console.log("User is signed in:", user);
+
+        // userid of the logged in user
+        const userId = user.uid;
+        firebase.firestore().collection('users').doc(userId).get().then((userDoc) => {
+            const userData = userDoc.data();
+            const savedClasses = userData.savedClasses; // Get the array of saved class IDs
+
+            if (savedClasses && savedClasses.length > 0) {
+                // Clear the container before populating it with saved classes
+                document.querySelector('.cards-container').innerHTML = '';
+
+                // Fetch each saved class and populate the card
+                savedClasses.forEach(classId => {
+                    firebase.firestore().collection('classes').doc(classId).get().then((classDoc) => {
+                        const classData = classDoc.data();
+                        const cardContent = `
+                            <div class="cards-column">
+                                <div class="card">
+                                    <h3>${classData.name}</h3>
+                                    <p>${classData.description}</p>
+                                    <p>Card Count: ${classData.cardAmount}</p>
+                                    <a href="review.html?class=${classDoc.id}" class="button">Review</a>
+                                </div>
+                            </div>
+                        `;
+                        document.querySelector('.cards-container').innerHTML += cardContent;
+                    });
+                });
+            } else {
+                // Handle case where there are no saved classes
+                document.querySelector('.cards-container').innerHTML = '<p class="no-save-found">No saved classes found. Why not <a href="browse.html" class="action-button">Browse Card Sets</a>browse some decks</a> to save?</p>';
+            }
+        }).catch(error => {
+            console.error("Error fetching user's saved classes:", error);
+        });
+
     } else {
         // No user is signed in, redirect them to the login page
         window.location.assign("login.html");

@@ -1,26 +1,30 @@
-document.addEventListener('DOMContentLoaded', function() {
+//Wait for page to load, then let user use the card-form
+document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('new-card-form');
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
-        // Extract form values
-        const cardClass = document.getElementById('topic').value;
-        const cardChapter = document.getElementById('chapter').value;
-        const question = document.getElementById('question').value;
-        const answer = document.getElementById('answer').value;
+        // Make sure these are correctly referenced within this scope
+        const deckIdField = document.getElementById('topic'); // Ensure 'topic' is the correct ID
+        const questionField = document.getElementById('question'); // Ensure 'question' is the correct ID
+        const answerField = document.getElementById('answer'); // Ensure 'answer' is the correct ID
+        const detailsField = document.getElementById('details'); // If you have a details field, ensure 'details' is the correct ID
 
-        // Check if the class is pre-approved
-        if (!isClassPreApproved(cardClass)) {
-            console.error("Class is not pre-approved.");
-            alert('This class is not pre-approved for adding flashcards.');
-            return;
-        }
+        const deckId = deckIdField.value;
+        const question = questionField.value;
+        const answer = answerField.value;
+        const details = detailsField ? detailsField.value : ''; // Handle case where detailsField might not exist
 
         try {
-            await addFlashcard(cardClass, cardChapter, question, answer);
+            await addFlashcard(deckId, question, answer, details);
             console.log("Flashcard created successfully!");
             alert('Flashcard created successfully!');
-            form.reset();
+
+            // Reset the fields
+            deckIdField.value = '';
+            questionField.value = '';
+            answerField.value = '';
+            if (detailsField) detailsField.value = ''; // Reset this field only if it exists
         } catch (error) {
             console.error("Error processing request: ", error);
             alert('Error creating flashcard.');
@@ -28,68 +32,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-async function addFlashcard(classId, chapterId, question, answer) {
-    const db = firebase.firestore();
-    const classRef = db.collection('classes').doc(classId);
-    const chapterRef = classRef.collection('chapters').doc(chapterId);
 
-    // Ensure class document exists, create if not
-    const classDoc = await classRef.get();
-    if (!classDoc.exists) {
-        console.error("Specified class does not exist.");
-        return;
-    }
+    async function addFlashcard(deckId, question, answer, details) {
+        const db = firebase.firestore();
+        const deckRef = db.collection('decks').doc(deckId);
 
-    // Ensure chapter document exists, create if not
-    const chapterDoc = await chapterRef.get();
-    if (!chapterDoc.exists) {
-        await chapterRef.set({
-            name: chapterId, // Set initial metadata for new chapter
+        // if the deck doesn't exist, create it with this default metadata
+        const deckDoc = await deckRef.get();
+        if (!deckDoc.exists) {
+            await deckRef.set({
+                title: deckId,
+
+            });
+        }
+
+        // Proceed to add the flashcard directly under the deck
+        const docRef = await deckRef.collection('cards').add({
+            question: question,
+            answer: answer,
+            details: details
         });
+
+        console.log(`Flashcard added with ID: ${docRef.id}`);
     }
 
-    // Proceed to add the flashcard
-    const docRef = await chapterRef.collection('flashcards').add({
-        question: question,
-        answer: answer,
-        class: classId,
-        chapter: chapterId
+
+
+
+
+
+
+
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in, so you can allow them access to the page
+            console.log("User is signed in:", user);
+        } else {
+            // No user is signed in, redirect them to the login page
+            window.location.assign("login.html");
+        }
     });
-
-    // Update the metadata for both the chapter and class
-    await updateMetadata(classRef, chapterRef);
-}
-
-function isClassPreApproved(classId) {
-    const preApprovedClasses = ['comp1510', 'comp1537', 'comp1113']; // Extend this as needed
-    return preApprovedClasses.includes(classId);
-}
-
-async function updateMetadata(classRef, chapterRef) {
-    const chapterFlashcardsSnapshot = await chapterRef.collection('flashcards').get();
-    const chapterCardAmount = chapterFlashcardsSnapshot.size;
-    await chapterRef.update({ cardAmount: chapterCardAmount });
-
-    let totalClassCards = 0;
-    const chaptersSnapshot = await classRef.collection('chapters').get();
-    for (const chapterDoc of chaptersSnapshot.docs) {
-        const chapterData = await chapterDoc.ref.get();
-        totalClassCards += chapterData.data().cardAmount || 0;
-    }
-    await classRef.update({ cardAmount: totalClassCards });
-}
-
-
-
-
-
-
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        // User is signed in, so you can allow them access to the page
-        console.log("User is signed in:", user);
-    } else {
-        // No user is signed in, redirect them to the login page
-        window.location.assign("login.html");
-    }
-});

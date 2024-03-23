@@ -32,7 +32,6 @@
         <ul class="navbar-menu">
             <li><a href="/main.html" class="navbar-links" id="home">Home</a></li>
             <li><a href="/browse.html" class="navbar-links" id="browse">Browse</a></li>
-            <li><a href="/library.html" class="navbar-links" id="library">Library</a></li>
             <li><a href="/create.html" class="navbar-links" id="library">Create</a></li>
             <li class="navbar-item">
                 <form class="navbar-search">
@@ -51,10 +50,6 @@
         </div>
 
         <!-- CREATE A FLASHCARD AREA -->
-        <div class="approved-classes">
-            <h2>Currently Approved Classes</h2>
-            <span>comp1510, comp1537, comp1113</span>
-        </div>
         <div class="create-container">
             <h2>Create a Card! Wowee!</h2>
             <form id="new-card-form">
@@ -63,16 +58,16 @@
                     <input type="text" id="topic" required>
                 </div>
                 <div class="card-form-group">
-                    <label for="chapter">Chapter:</label>
-                    <input type="text" id="chapter" required>
-                </div>
-                <div class="card-form-group">
                     <label for="question">Question:</label>
                     <input type="text" id="question" required>
                 </div>
                 <div class="card-form-group">
                     <label for="answer">Answer:</label>
                     <input type="text" id="answer" required>
+                </div>
+                <div class="card-form-group">
+                    <label for="chapter">Details:</label>
+                    <input type="text" id="details">
                 </div>
                 <button type="text" class="create-button">Create</button>
             </form>
@@ -86,9 +81,7 @@
 
     <!-- DO NOT DELETE. -->
     <script src="./scripts/firebaseAPI_flashcardin.js"></script>
-    <script src="./scripts/main.js"></script>
     <script src="./scripts/script.js"></script>
-    <!-- <script src="./scripts/subjects.js"></script> -->
     <script src="./scripts/create.js"></script>
 </body>
 
