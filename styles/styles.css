@@ -153,11 +153,11 @@ main {
     flex-direction: row;
     align-items: center;
     margin-bottom: 20px;
-    width: 100%; 
+    width: 100%;
 }
 
 .card-form-group label {
-    width: 150px; 
+    width: 150px;
     margin-right: 10px;
     text-align: right;
 }
@@ -178,8 +178,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%; 
-  }
+    width: 100%;
+}
 
 .action-button {
     display: inline-block;
@@ -195,19 +195,22 @@ main {
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-  }
-  
-  .action-button:hover {background-color: #c83742}
-  
-  .action-button:active {
+}
+
+.action-button:hover {
+    background-color: #c83742
+}
+
+.action-button:active {
     background-color: #c83742;
     box-shadow: 0 5px #666;
-  }
+}
 
-  .no-save-found {
+.no-save-found {
     text-align: center;
-  }
-  /* #endregion */
+}
+
+/* #endregion */
 footer {
     display: flex;
     justify-content: space-evenly;
@@ -215,6 +218,72 @@ footer {
     grid-row: 3;
     color: #f8f9f2;
 }
+
+/* #region FlashCardContainer */
+.flashcard-container {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: 10px;
+}
+
+.flashcard {
+    width: 550px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.7s ease-in;
+}
+
+.flashcard.flipped {
+    transform: rotatey(180deg);
+}
+
+.frontofcard,
+.backofcard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.frontofcard {
+    background-color: #f2ab2b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.backofcard {
+    background-color: #f2ab2b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+}
+
+.flashcard h2 {
+    margin: 0;
+    padding: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttons>button {
+    height: 30px;
+    width: 100px;
+}
+
+/* #endregion */
 
 /* MEDIA QUERY FOR LARGER SCREENS */
 @media (min-width: 701px) {
@@ -286,4 +355,59 @@ footer {
     }
 
     /* Cards Styling End Here */
+
+    /* #region FlashCardContainer */
+    .flashcard-container {
+        perspective: 1000px;
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        margin: 10px;
+    }
+
+    .flashcard {
+        width: 600px;
+        height: 400px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: all 0.7s ease-in;
+    }
+
+    .flashcard.flipped {
+        transform: rotatey(180deg);
+    }
+
+    .frontofcard,
+    .backofcard {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        backface-visibility: hidden;
+    }
+
+    .frontofcard {
+        background-color: #f2ab2b;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .backofcard {
+        background-color: #f2ab2b;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: rotateY(180deg);
+    }
+
+    .flashcard h2 {
+        margin: 0;
+        padding: 10px;
+    }
+    /* #endregion */
 }

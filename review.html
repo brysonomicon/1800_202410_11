@@ -44,34 +44,21 @@
     </nav>
 
     <main>
-        <div class="container-fluid bg-light text-dark p-5"></div>
-        <h1 class="display-4">Welcome Back, <span id="name-goes-here"></span></h1>
-        <hr>
-        </div>
-
-        <h1>Classes</h1>
-
-        <!-- Cards Start Here -->
-        <div class="cards-container">
-
-            <!-- Here is the container for cards  -->
-            <div class="cards-column">
-                <div id ="flashcards-go-here" class="card"></div>
-            </div>
-          </div>
-
-          <!-- Templates for general use, not displayed -->
-          <div id="classCardTemplate">
-            <div class="cards-column">
-              <div class="card-body">
-                <h2 class="card-class">Card Title</h2>
-                <br />
-                <a class="btn btn-primary card-href" id="review">Review</a>
-              </div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="frontofcard">
+                    <h2><span id="question">Question</span></h2>
+                    <h2><span id="end"></span></h2>
+                </div>
+                <div class="backofcard">
+                    <h2><span id="answer">Answer</span></h2>
+                </div>
             </div>
         </div>
-        
-        <!-- Cards End Here -->
+        <div class="buttons">
+            <button type="button" id="backButton">Back</button>
+            <button type="button" id="nextButton">Next</button>
+        </div>
     </main>
 
     <footer>
@@ -81,6 +68,8 @@
     <!-- DO NOT DELETE. -->
     <script src="./scripts/firebaseAPI_flashcardin.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/browse.js"></script>
+    <script src="./scripts/review.js"></script>
 
 </body>
 
