@@ -45,9 +45,6 @@ firebase.firestore().collection('decks').doc(subject).collection('cards').get().
 
     document.getElementById("backButton").addEventListener("click", function () {
         if (cardIndex > 0) {
-            if (document.getElementById("answer").innerHTML.trim() !== "") {
-                document.querySelector(".flashcard").click();
-            }
             cardIndex--;
             displayFlashcard(cardIndex);
             document.getElementById("end").innerHTML = "";
