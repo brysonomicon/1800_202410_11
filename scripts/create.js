@@ -4,18 +4,20 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
-        // Make sure these are correctly referenced within this scope
-        const deckIdField = document.getElementById('topic'); // Ensure 'topic' is the correct ID
-        const questionField = document.getElementById('question'); // Ensure 'question' is the correct ID
-        const answerField = document.getElementById('answer'); // Ensure 'answer' is the correct ID
-        const detailsField = document.getElementById('details'); // If you have a details field, ensure 'details' is the correct ID
+        // creates objects from the form fields to be used in database adding
+        const deckIdField = document.getElementById('topic'); 
+        const questionField = document.getElementById('question'); 
+        const answerField = document.getElementById('answer'); 
+        const detailsField = document.getElementById('details'); 
 
+        //takes the value from the form field and turns it into an object
         const deckId = deckIdField.value;
         const question = questionField.value;
         const answer = answerField.value;
-        const details = detailsField ? detailsField.value : ''; // Handle case where detailsField might not exist
+        const details = detailsField ? detailsField.value : ''; 
 
         try {
+            //adds the flashcard to the database
             await addFlashcard(deckId, question, answer, details);
             console.log("Flashcard created successfully!");
             alert('Flashcard created successfully!');
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             deckIdField.value = '';
             questionField.value = '';
             answerField.value = '';
-            if (detailsField) detailsField.value = ''; // Reset this field only if it exists
+            detailsField.value = '';
         } catch (error) {
             console.error("Error processing request: ", error);
             alert('Error creating flashcard.');
@@ -32,7 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
+    //takes the field objects from above and uses them to add the values to the database.
+    //to add/remove functions make sure you have consistent values from above to add here
     async function addFlashcard(deckId, question, answer, details) {
         const db = firebase.firestore();
         const deckRef = db.collection('decks').doc(deckId);
@@ -56,19 +59,13 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(`Flashcard added with ID: ${docRef.id}`);
     }
 
-
-
-
-
-
-
-
+    //checks to make sure a user is logged in, if not send them to login.html
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            // User is signed in, so you can allow them access to the page
+            
             console.log("User is signed in:", user);
         } else {
-            // No user is signed in, redirect them to the login page
+            
             window.location.assign("login.html");
         }
     });
