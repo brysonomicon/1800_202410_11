@@ -145,7 +145,7 @@ async function displaySavedClasses(savedClasses) {
 
 //sends this message if there are no saved classes.
 function displayNoSavedClassesMessage() {
-    const message = '<p class="no-save-found">No saved classes found. <br>Why not <a href="browse.html" class="action-button">Browse Card Sets</a> to save?</p>';
+    const message = '<p class="no-save-found">No saved classes found. <br>Why not <a href="browse.html" class="action-button">Browse Decks</a> to save?</p>';
     document.querySelector('.cards-container').innerHTML = message;
     document.getElementById('browse-button').style.display = 'none';
 }
