@@ -23,7 +23,7 @@ insertNameFromFirestore();
 //When the user hits the landing page, this updates their role to "standard" will need to be adjusted when the "power user" role is setup, otherwise it will overwrite and "force" the user to be standard whenever they log in.
 // unless we make "power user" a completely different field that gives permissions, which doesn't seem like a terrible option. everyone becomes a standard user just by logging in, this way we could limit read permissions to logged in 
 // users and delineate write permissions depending on what the user is trying to write. standard users could make cards and update their profile information, while power users would be able to update cards and verify sets.
-firebase.auth().onAuthStateChanged(user => {
+firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // Check if this is a new user by attempting to get their user document
         const userRef = firebase.firestore().collection('users').doc(user.uid);
@@ -41,6 +41,7 @@ firebase.auth().onAuthStateChanged(user => {
         });
     }
 });
+
 
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -66,50 +67,63 @@ firebase.auth().onAuthStateChanged(user => {
     }
 });
 
-
-//This function now gets the userID of the logged in user and uses it to display their saved card sets. If there are no saved card sets, it serves a link to go to Browse and suggests the user save some sets.
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        //verifies user is logged in and creates an object of their id
-        console.log("User is signed in:", user);
-        const userId = user.uid;
-        //checks the userid against the savedclasses metadata
-        firebase.firestore().collection('users').doc(userId).get().then((userDoc) => {
-            const userData = userDoc.data();
-            const savedClasses = userData.savedClasses;
-
-            //if the user has saved classes, display them
-            if (savedClasses && savedClasses.length > 0) {
-                document.querySelector('.cards-container').innerHTML = '';
-                savedClasses.forEach(classId => {
-                    firebase.firestore().collection('classes').doc(classId).get().then((classDoc) => {
-                        const classData = classDoc.data();
-                        const cardContent = `
-                            <div class="cards-column">
-                                <div class="card">
-                                    <h3>${classData.name}</h3>
-                                    <p>${classData.description}</p>
-                                    <p>Card Count: ${classData.cardAmount}</p>
-                                    <a href="review.html?class=${classDoc.id}" class="button">Review</a>
-                                </div>
-                            </div>
-                        `;
-                        document.querySelector('.cards-container').innerHTML += cardContent;
-                    });
-                });
-                // if there are saved classes, show the browse button
-                document.getElementById('browse-button').style.display = '';
-            } else {
-                document.querySelector('.cards-container').innerHTML = '<p class="no-save-found">No saved classes found. <br>Why not <a href="browse.html" class="action-button">Browse Card Sets</a> to save?</p>';
-                // hide the hardcoded browse button because it shows up in the message when there are no saved classes to display
-                document.getElementById('browse-button').style.display = 'none';
-            }
-        }).catch(error => {
-            console.error("Error fetching user's saved classes:", error);
-        });
-
-    } else {
+//turned that ugly callback hell function into something more readable.
+firebase.auth().onAuthStateChanged(async function (user) {
+    //if no user is logged in, send the client to the login page. ain't no random users gettin in here!
+    if (!user) {
         window.location.assign("login.html");
+        return;
+    }
+    //confirm logged in user in the console then try to grab their saved classes from the users doc
+    //according to the userId of the logged in user.
+    console.log("User is signed in:", user);
+    try {
+        const userId = user.uid;
+        const userDoc = await firebase.firestore().collection('users').doc(userId).get();
+        const userData = userDoc.data();
+        const savedClasses = userData.savedClasses;
+
+        //if there are saved classes, show them. if not, serve a link to the browse page and hide the 
+        //other browse button. so the user page always has a link to browse, but only one.
+        if (savedClasses && savedClasses.length > 0) {
+            await displaySavedClasses(savedClasses);
+            document.getElementById('browse-button').style.display = '';
+        } else {
+            displayNoSavedClassesMessage();
+        }
+    } catch (error) {
+        console.error("Error fetching user's saved classes:", error);
     }
 });
+
+//function that displays the saved classes if they exist
+async function displaySavedClasses(savedClasses) {
+    const cardsContainer = document.querySelector('.cards-container');
+    cardsContainer.innerHTML = '';
+
+    for (const classId of savedClasses) {
+        const classDoc = await firebase.firestore().collection('classes').doc(classId).get();
+        const classData = classDoc.data();
+        const cardContent = `
+            <div class="cards-column">
+                <div class="card">
+                    <h3>${classData.name}</h3>
+                    <p>${classData.description}</p>
+                    <p>Card Count: ${classData.cardAmount}</p>
+                    <a href="review.html?class=${classDoc.id}" class="button">Review</a>
+                </div>
+            </div>
+        `;
+        cardsContainer.innerHTML += cardContent;
+    }
+}
+
+//sends this message if there are no saved classes.
+function displayNoSavedClassesMessage() {
+    const message = '<p class="no-save-found">No saved classes found. <br>Why not <a href="browse.html" class="action-button">Browse Card Sets</a> to save?</p>';
+    document.querySelector('.cards-container').innerHTML = message;
+    document.getElementById('browse-button').style.display = 'none';
+}
+
+
 
