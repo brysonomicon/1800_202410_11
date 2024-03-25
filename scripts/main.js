@@ -98,25 +98,50 @@ firebase.auth().onAuthStateChanged(async function (user) {
 
 //function that displays the saved classes if they exist
 async function displaySavedClasses(savedClasses) {
-    const cardsContainer = document.querySelector('.cards-container');
+    const cardsContainer = document.querySelector('.saved-cards');
     cardsContainer.innerHTML = '';
 
     for (const classId of savedClasses) {
-        const classDoc = await firebase.firestore().collection('classes').doc(classId).get();
-        const classData = classDoc.data();
+
+        const classDoc = await firebase.firestore().collection('decks').doc(classId).get();
+        
+        
+        if (!classDoc.exists) {
+            console.log(`No document found for class ID: ${classId}`);
+            continue; 
+        }
+
+        const data = classDoc.data(); 
         const cardContent = `
             <div class="cards-column">
                 <div class="card">
-                    <h3>${classData.name}</h3>
-                    <p>${classData.description}</p>
-                    <p>Card Count: ${classData.cardAmount}</p>
-                    <a href="review.html?class=${classDoc.id}" class="button">Review</a>
+                    <h3>${classDoc.id || 'No name available'}</h3> <!-- Assuming 'name' is a field -->
+                    <p>${data.description || "No description available."}</p>
+                    <p id="card-count-${classDoc.id}">Card Count: Loading...</p>
+                    <a href="review.html?deck=${classDoc.id}" class="button">Review</a>
+                    <a href="javascript:void(0);" class="button save-deck" data-deck-id="${classDoc.id}">Save</a>
                 </div>
             </div>
         `;
+
         cardsContainer.innerHTML += cardContent;
+
+        
+        classDoc.ref.collection('cards').get().then((cardsSnapshot) => {
+            const cardCountElement = document.getElementById(`card-count-${classDoc.id}`);
+            if (cardCountElement) {
+                cardCountElement.textContent = `Card Count: ${cardsSnapshot.size}`;
+            }
+        }).catch(error => {
+            console.error("Error getting card count:", error);
+            const cardCountElement = document.getElementById(`card-count-${classDoc.id}`);
+            if (cardCountElement) {
+                cardCountElement.textContent = "Card Count: Error";
+            }
+        });
     }
 }
+
 
 //sends this message if there are no saved classes.
 function displayNoSavedClassesMessage() {

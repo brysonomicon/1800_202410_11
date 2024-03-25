@@ -6,7 +6,8 @@ function handleSignInSuccess(authResult, redirectUrl) {
             name: user.displayName || "Unnamed User", // Fallback for users without a displayName
             email: user.email,
             country: "Canada",
-            school: "BCIT"
+            school: "BCIT",
+            savedClasses: ""
         };
         return addUserToFirestore(user.uid, userData);
     }
