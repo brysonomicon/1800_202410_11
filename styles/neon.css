@@ -1,0 +1,422 @@
+/* Styles for neon mode */
+body {
+  background-color: #00FFFF; /* Turquoise Blue */
+  color: #FFFFFF; /* White */
+}
+
+.theme-card {
+  background-color: #FF69B4; /* Hot Pink */
+}
+
+.theme-card:hover {
+  background-color: #FFA500; /* Bright Orange */
+  box-shadow: 0 0 20px #FFA500, 0 0 40px #FFA500, 0 0 60px #FFA500; /* Example neon effect */
+}
+
+html {
+    font-family: "Patrick Hand SC", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #FFA500; /* Bright Orange */
+}
+
+/* NAVBAR RELATED */
+/* #region */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #FFA500; /* Bright Orange */
+  padding: 20px;
+}
+
+.navbar-logo img {
+  width: 75px;
+}
+
+.navbar-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.navbar-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #FF69B4; /* Hot Pink */
+}
+
+.navbar-menu {
+  display: flex;
+  width: 100%;
+  list-style: none;
+}
+
+.navbar-links,
+.navbar-search button {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 7px 0;
+  text-decoration: none;
+  color: #FF69B4; /* Hot Pink */
+}
+
+.navbar-links {
+  border: none;
+  background-color: #00FFFF; /* Turquoise Blue */
+  padding: 10px 0 10px 0;
+  margin-right: 40%;
+  margin-left: 30%;
+  color: #09181C; /* Dark Blue */
+  border-radius: 25px;
+}
+
+.navbar-links:hover {
+  background-color: #FF69B4; /* Hot Pink */
+}
+
+.search-btn {
+  padding: 8px 15px;
+  border: none;
+  background-color: #09181C; /* Dark Blue */
+}
+
+.navbar-search {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.navbar-search input {
+  padding: 5px;
+  margin-right: 5px;
+}
+/* #endregion */
+
+/* MAIN CONTENT */
+/* #region */
+main {
+    grid-row: 2;
+    color: #FFFFFF; /* White */
+}
+
+.welcome {
+    padding: 10% 0 0 5%;
+    color: #FFFFFF; /* White */
+}
+
+.login-button {
+    padding: 10px 20px 10px 20px;
+    background-color: #FFA500; /* Bright Orange */
+}
+
+.login-button:hover {
+    background-color: #FF69B4; /* Hot Pink */
+}
+
+/* (Mobile) Cards Stylin Starts Here */
+/* #region */
+.cards-column {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.card {
+    padding: 16px;
+    background-color: #00FFFF; /* Turquoise Blue */
+}
+
+.button {
+    background-color: #000000; /* Black */
+    color: #FFFFFF; /* White */
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* #endregion */
+/* Create a Card Form Style */
+/* #region */
+.create-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.card-form-group label {
+    width: 150px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.card-form-group input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #FFFFFF; /* White */
+    border-radius: 4px;
+}
+
+/* #endregion */
+
+/* MAIN.HTML CONTENT STYLE */
+/* #region */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.action-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #09181c;
+    background-color: #f8f9f2;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.action-button:hover {
+    background-color: #c83742
+}
+
+.action-button:active {
+    background-color: #c83742;
+    box-shadow: 0 5px #666;
+}
+
+.no-save-found {
+    text-align: center;
+}
+
+/* #endregion */
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    grid-row: 3;
+    color: #FFFFFF; /* White */
+}
+
+/* #region FlashCardContainer */
+.flashcard-container {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: 10px;
+}
+
+.flashcard {
+    width: 550px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.7s ease-in;
+}
+
+.flashcard.flipped {
+    transform: rotatey(180deg);
+}
+
+.frontofcard,
+.backofcard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.frontofcard {
+    background-color: #FFA500; /* Bright Orange */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.backofcard {
+    background-color: #FFA500; /* Bright Orange */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+}
+
+.flashcard h2 {
+    margin: 0;
+    padding: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttons>button {
+    height: 30px;
+    width: 100px;
+}
+
+/* #endregion */
+
+/* PROFILE PAGE RELATEd */
+/* #region */
+.theme-card {
+    display: inline-block;
+    width: calc(33.33% - 20px); /* Adjust the width as per your preference */
+    margin: 10px;
+    padding: 20px;
+    background-color: #FF69B4; /* Hot Pink */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-card:hover {
+    background-color: #FFA500; /* Bright Orange */
+}
+/* #endregion */
+
+/* NAVBAR RELATED */
+/* #region */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #FFA500; /* Bright Orange */
+  padding: 20px;
+}
+
+.navbar-logo img {
+  width: 75px;
+}
+
+.navbar-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.navbar-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #FF69B4; /* Hot Pink */
+}
+
+.navbar-menu {
+  display: none;
+  width: 100%;
+  list-style: none;
+}
+
+.navbar-links,
+.navbar-search button {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 7px 0;
+  text-decoration: none;
+  color: #FF69B4; /* Hot Pink */
+}
+
+.navbar-links {
+  border: none;
+  background-color: #00FFFF; /* Turquoise Blue */
+  padding: 10px 0 10px 0;
+  margin-right: 40%;
+  margin-left: 30%;
+  color: #09181C; /* Dark Blue */
+  border-radius: 25px;
+}
+
+.navbar-links:hover {
+  background-color: #FF69B4; /* Hot Pink */
+}
+
+.search-btn {
+  padding: 8px 15px;
+  border: none;
+  background-color: #09181C; /* Dark Blue */
+}
+
+.navbar-search {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.navbar-search input {
+  padding: 5px;
+  margin-right: 5px;
+}
+/* #endregion */
+
+/* MEDIA QUERY FOR LARGER SCREENS */
+@media (min-width: 701px) {
+  .navbar {
+      flex-direction: row;
+      justify-content: space-evenly;
+  }
+
+  .navbar-toggle {
+      display: none;
+  }
+
+  .navbar-menu {
+      display: flex;
+      align-items: center;
+  }
+
+  .navbar-menu li:last-child .navbar-links {
+      margin-left: 100px;
+      color: gray;
+  }
+
+  .navbar-links {
+      margin-left: 20px;
+      padding: 0px;
+      border-radius: 0px;
+      background-color: #FFA500; /* Bright Orange */
+  }
+
+  .navbar-links:hover {
+      background-color: #FFA500; /* Bright Orange */
+      color: #FFFFFF; /* White */
+  }
+
+  .navbar-search {
+      margin-left: 5px;
+      justify-content: flex-end;
+  }
+
+  .navbar-search input {
+      margin-right: 10px;
+  }
+}

@@ -45,11 +45,11 @@
     </nav>
 
     <main>
-        <div class="form-container">
-            <div class="container-fluid bg-light text-dark p-5"></div>
-            <h1 class="display-4"><span id="name-goes-here">friend</span>'s Profile</h1>
-            <hr>
-            </div>
+        <header>
+          <div class="form-container">
+            <h1 class="form-header"><span id="name-goes-here">friend</span>'s Profile</h1>
+          </div>
+        </header>
             <form>
                 <fieldset class="form" id="personalInfoFields" disabled>
                     <div class="form-group">
@@ -82,7 +82,23 @@
                 </div>
             </form>
     </div>
-
+        <header>
+            <h1>CUSTOMIZE</h1>
+        </header>
+    
+        <!-- Preset theme buttons as big cards -->
+        <div id="themeButtons">
+            <div class="theme-card" onclick="setTheme('default')">
+                <h2>Default</h2>
+            </div>
+            <div class="theme-card" onclick="setTheme('light')">
+                <h2>Light Mode</h2>
+            </div>
+            <div class="theme-card" onclick="setTheme('neon')">
+                <h2>Neon Mode</h2>
+            </div>
+        </div>
+    
     </main>
 
     <footer>
@@ -93,6 +109,7 @@
     <script src="./scripts/firebaseAPI_flashcardin.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/profile.js"></script>
+    <script src="./scripts/themeToggle.js"></script>
 </body>
 
 </html>

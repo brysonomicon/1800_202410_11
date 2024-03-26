@@ -1,4 +1,21 @@
-/*  #f8f9f2(white) #09181c(blue) #f2ab2b(gold) #c83742(red) */
+/* #708090 (slate grey) #FFDAB9(peach) #F2F2F2 (light grey) #333333(dark grey) */
+
+/* Styles for light mode */
+body {
+  background-color: #ffdab9; /* background color for light mode */
+  color: #333; /* Example text color for light mode */
+}
+
+.theme-card {
+  background-color: #ffdab9; /* Example background color for theme cards in light mode */
+}
+
+.theme-card:hover {
+  background-color: #e0e0e0; /* Example background color for theme cards on hover in light mode */
+}
+
+
+/*  #f8f9f2(white) #0c83742(red) #f2ab2b(gold) */
 /* MOBILE FIRST MEDIA QUERY */
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
 
@@ -6,7 +23,8 @@ html {
     font-family: "Patrick Hand SC", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-color: black;
+    background-color: #f2f2f2;
+    color: #333;
 }
 
 body {
@@ -23,6 +41,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
     background-color: #F2AB2B;
+    color: #333;
     padding: 20px;
 }
 
@@ -40,7 +59,7 @@ body {
 .navbar-toggle .bar {
     width: 25px;
     height: 3px;
-    background-color: #09181c;
+    background-color: #333;
 }
 
 .navbar-menu {
@@ -56,7 +75,8 @@ body {
     text-align: center;
     margin: 7px 0;
     text-decoration: none;
-    color: #C83742;
+    color: #333;
+    background-color: #f2f2f2;
 }
 
 .navbar-links {
@@ -71,7 +91,6 @@ body {
 
 .navbar-links:hover {
     background-color: #C83742;
-    
 }
 
 .search-btn {
@@ -125,7 +144,7 @@ main {
 
 .card {
     padding: 16px;
-    background-color: #f2ab2b;
+    background-color: #708090;
 }
 
 .button {
