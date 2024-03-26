@@ -1,4 +1,4 @@
-// JavaScript function to set theme
+// function to set theme
 function setTheme(theme) {
   // Change the stylesheet link based on the selected theme
   var stylesheetLink = document.querySelector('link[href^="./styles"]');

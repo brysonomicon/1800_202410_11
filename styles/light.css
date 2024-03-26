@@ -3,15 +3,15 @@
 /* Styles for light mode */
 body {
   background-color: #ffdab9; /* background color for light mode */
-  color: #333; /* Example text color for light mode */
+  color: #333; /* text color for light mode */
 }
 
 .theme-card {
-  background-color: #ffdab9; /* Example background color for theme cards in light mode */
+  background-color: #ffdab9; /*  background color for theme cards */
 }
 
 .theme-card:hover {
-  background-color: #e0e0e0; /* Example background color for theme cards on hover in light mode */
+  background-color: #e0e0e0; /* background color for theme cards on hover */
 }
 
 
