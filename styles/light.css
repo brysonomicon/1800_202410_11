@@ -305,6 +305,24 @@ footer {
 
 /* #endregion */
 
+/* PROFILE PAGE RELATEd */
+/* #region */
+.theme-card {
+    display: inline-block;
+    width: calc(33.33% - 20px); /* Adjust the width as per your preference */
+    margin: 10px;
+    padding: 20px;
+    background-color: #f2ab2b; /* Default background color */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+  .theme-card:hover {
+      background-color: #e0e0e0; /* Background color on hover */
+  }
+  /* #endregion */    
+
 /* MEDIA QUERY FOR LARGER SCREENS */
 @media (min-width: 701px) {
     .navbar {
@@ -431,21 +449,4 @@ footer {
     }
     /* #endregion */
 
-    /* PROFILE PAGE RELATEd */
-    /* #region */
-    .theme-card {
-        display: inline-block;
-        width: calc(33.33% - 20px); /* Adjust the width as per your preference */
-        margin: 10px;
-        padding: 20px;
-        background-color: #f2ab2b; /* Default background color */
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    
-    .theme-card:hover {
-        background-color: #e0e0e0; /* Background color on hover */
-    }
-    /* #endregion */    
 }

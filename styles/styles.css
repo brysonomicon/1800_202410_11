@@ -1,4 +1,6 @@
 /*  #f8f9f2(white) #09181c(blue) #f2ab2b(gold) #c83742(red) */
+
+/* THIS IS DEFAULT STYLESHEET */
 /* MOBILE FIRST MEDIA QUERY */
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
 
@@ -286,6 +288,24 @@ footer {
 
 /* #endregion */
 
+/* PROFILE PAGE RELATEd */
+/* #region */
+.theme-card {
+    display: inline-block;
+    width: calc(33.33% - 20px); /* Adjust the width as per your preference */
+    margin: 10px;
+    padding: 20px;
+    background-color: #f2ab2b; /* Default background color */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+    
+.theme-card:hover {
+    background-color: #e0e0e0; /* Background color on hover */
+}
+/* #endregion */    
+
 /* MEDIA QUERY FOR LARGER SCREENS */
 @media (min-width: 701px) {
     .navbar {
@@ -412,21 +432,4 @@ footer {
     }
     /* #endregion */
 
-    /* PROFILE PAGE RELATEd */
-    /* #region */
-    .theme-card {
-        display: inline-block;
-        width: calc(33.33% - 20px); /* Adjust the width as per your preference */
-        margin: 10px;
-        padding: 20px;
-        background-color: #f2ab2b; /* Default background color */
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    
-    .theme-card:hover {
-        background-color: #e0e0e0; /* Background color on hover */
-    }
-    /* #endregion */    
 }
