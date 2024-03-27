@@ -20,72 +20,52 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <a href="#" class="navbar-logo">
-            <img src="./images/fcLogo.png" alt="Logo">
-        </a>
-        <div class="navbar-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <ul class="navbar-menu">
-            <li><a href="/main.html" class="navbar-links" id="home">Home</a></li>
-            <li><a href="/browse.html" class="navbar-links" id="browse">Browse</a></li>
-            <li><a href="/create.html" class="navbar-links" id="library">Create</a></li>
-            <li><a href="/profile.html" class="navbar-links"id="profile">Profile</a></li>
-            <li class="navbar-item">
-                <form class="navbar-search">
-                    <input type="search" placeholder="Search" aria-label="Search">
-                    <button type="submit" class="search-btn">Search</button>
-                </form>
-            </li>
-            <li><a href="../index.html" class="navbar-links">Logout</a></li>
-        </ul>
-    </nav>
+    <!-- NavBar -->
+    <nav id="navbarGoesHere"></nav>
+    <!-- NavBar -->
 
     <main>
         <header>
-          <div class="form-container">
-            <h1 class="form-header"><span id="name-goes-here">friend</span>'s Profile</h1>
-          </div>
+            <div class="form-container">
+                <h1 class="form-header"><span id="name-goes-here">friend</span>'s Profile</h1>
+            </div>
         </header>
-            <form>
-                <fieldset class="form" id="personalInfoFields" disabled>
-                    <div class="form-group">
-                        <label >Name:</label>
-                        <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
-                    </div>
-                    <div class="form-group">
-                        <label >Email:</label>
-                        <input type="text" id="emailInput" class="form-control" placeholder="Enter your email">
-                    </div>
-                    <div class="form-group">
-                        <label >School:</label>
-                        <input type="text" id="schoolInput" class="form-control" placeholder="Enter your school">
-                    </div>
-                    <div class="form-group">
-                        <label >Country:</label>
-                        <input type="text" id="countryInput" class="form-control" placeholder="Enter your country">
-                    </div>
-                    <div class="form-group">
-                        <label >Role:</label>
-                        <output type="text" id="roleOutput" class="form-control" disabled>
-                    </div>
-                    <div class="form-button">
-                        <button type ="button" class="button-req">Request Role</button>
-                    </div>
-                </fieldset>
-                <div class="form-button">
-                    <button type="button" class="button-edit" onclick="editUserInfo()">Edit</button>
-                    <button type="button" class="button-save" onclick="saveUserInfo()">Save</button>
+        <form>
+            <fieldset class="form" id="personalInfoFields" disabled>
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
                 </div>
-            </form>
-    </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" id="emailInput" class="form-control" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label>School:</label>
+                    <input type="text" id="schoolInput" class="form-control" placeholder="Enter your school">
+                </div>
+                <div class="form-group">
+                    <label>Country:</label>
+                    <input type="text" id="countryInput" class="form-control" placeholder="Enter your country">
+                </div>
+                <div class="form-group">
+                    <label>Role:</label>
+                    <output type="text" id="roleOutput" class="form-control" disabled>
+                </div>
+                <div class="form-button">
+                    <button type="button" class="button-req">Request Role</button>
+                </div>
+            </fieldset>
+            <div class="form-button">
+                <button type="button" class="button-edit" onclick="editUserInfo()">Edit</button>
+                <button type="button" class="button-save" onclick="saveUserInfo()">Save</button>
+            </div>
+        </form>
+        </div>
         <header>
             <h1>CUSTOMIZE</h1>
         </header>
-    
+
         <!-- Preset theme buttons as big cards -->
         <div id="themeButtons">
             <div class="theme-card" onclick="setTheme('default')">
@@ -98,7 +78,7 @@
                 <h2>Neon Mode</h2>
             </div>
         </div>
-    
+
     </main>
 
     <footer>
@@ -110,6 +90,7 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/profile.js"></script>
     <script src="./scripts/themeToggle.js"></script>
+    <script src="./scripts/skeleton.js"></script>
 </body>
 
 </html>
