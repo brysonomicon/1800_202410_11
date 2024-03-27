@@ -19,41 +19,22 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <a href="/main.html" class="navbar-logo">
-            <img src="./images/fcLogo.png" alt="Logo">
-        </a>
-        <div class="navbar-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <ul class="navbar-menu">
-            <li><a href="/main.html" class="navbar-links" id="home">Home</a></li>
-            <li><a href="/browse.html" class="navbar-links" id="browse">Browse</a></li>
-            <li><a href="/create.html" class="navbar-links" id="library">Create</a></li>
-            <li><a href="/profile.html" class="navbar-links"id="profile">Profile</a></li>
-            <li class="navbar-item">
-                <form class="navbar-search">
-                    <input type="search" placeholder="Search" aria-label="Search">
-                    <button type="submit" class="search-btn">Search</button>
-                </form>
-            </li>
-            <li><a href="../index.html" class="navbar-links">Logout</a></li>
-        </ul>
-    </nav>
+    <!-- NavBar -->
+    <nav id="navbarGoesHere"></nav>
+    <!-- NavBar -->
 
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
 
-    <footer>
-        <p>© 2024 Flash Cardin', Inc</p>
-    </footer>
+    <!-- Footer -->
+    <nav id="footerGoesHere"></nav>
+    <!-- Footer -->
 
 
     <script src="./scripts/firebaseAPI_flashcardin.js"></script>
     <script src="./scripts/auth.js"></script>
     <script src="./scripts/themeToggle.js"></script>
+    <script src="./scripts/skeleton.js"></script>
 </body>
 
 </html>
