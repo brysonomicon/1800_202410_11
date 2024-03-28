@@ -65,8 +65,8 @@ async function saveClassToUser(classId) {
       return;
   }
   
-  const userId = user.uid;
-  const userRef = firebase.firestore().collection('users').doc(userId);
+  const currentUser = user.uid;
+  const userRef = firebase.firestore().collection('users').doc(currentUser);
   
   try {
       //Transaction ensures that partial updates don't happen. function either finishes completely, or not at all.

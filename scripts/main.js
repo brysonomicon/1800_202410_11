@@ -23,7 +23,7 @@ insertNameFromFirestore();
 //When the user hits the landing page, this updates their role to "standard" will need to be adjusted when the "power user" role is setup, otherwise it will overwrite and "force" the user to be standard whenever they log in.
 // unless we make "power user" a completely different field that gives permissions, which doesn't seem like a terrible option. everyone becomes a standard user just by logging in, this way we could limit read permissions to logged in 
 // users and delineate write permissions depending on what the user is trying to write. standard users could make cards and update their profile information, while power users would be able to update cards and verify sets.
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // Check if this is a new user by attempting to get their user document
         const userRef = firebase.firestore().collection('users').doc(user.uid);
@@ -42,7 +42,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 });
 
-
+//Applies user role
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
 
@@ -104,14 +104,14 @@ async function displaySavedClasses(savedClasses) {
     for (const classId of savedClasses) {
 
         const classDoc = await firebase.firestore().collection('decks').doc(classId).get();
-        
-        
+
+
         if (!classDoc.exists) {
             console.log(`No document found for class ID: ${classId}`);
-            continue; 
+            continue;
         }
 
-        const data = classDoc.data(); 
+        const data = classDoc.data();
         const cardContent = `
             <div class="cards-column">
                 <div class="card">
@@ -126,7 +126,7 @@ async function displaySavedClasses(savedClasses) {
 
         cardsContainer.innerHTML += cardContent;
 
-        
+
         classDoc.ref.collection('cards').get().then((cardsSnapshot) => {
             const cardCountElement = document.getElementById(`card-count-${classDoc.id}`);
             if (cardCountElement) {
