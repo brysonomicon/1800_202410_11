@@ -96,15 +96,13 @@ firebase.auth().onAuthStateChanged(async function (user) {
     }
 });
 
-//function that displays the saved classes if they exist
+// Function to display saved classes
 async function displaySavedClasses(savedClasses) {
     const cardsContainer = document.querySelector('.saved-cards');
     cardsContainer.innerHTML = '';
 
     for (const classId of savedClasses) {
-
         const classDoc = await firebase.firestore().collection('decks').doc(classId).get();
-
 
         if (!classDoc.exists) {
             console.log(`No document found for class ID: ${classId}`);
@@ -119,13 +117,13 @@ async function displaySavedClasses(savedClasses) {
                     <p>${data.description || "No description available."}</p>
                     <p id="card-count-${classDoc.id}">Card Count: Loading...</p>
                     <a href="review.html?deck=${classDoc.id}" class="button">Review</a>
-                    <a href="javascript:void(0);" class="button save-deck" data-deck-id="${classDoc.id}">Save</a>
+                    <a href="javascript:void(0);" class="button save-deck" data-deck-id="${classDoc.id}" 
+                    data-saved="${savedClasses.includes(classId)}">${savedClasses.includes(classId) ? 'Unsave' : 'Save'}</a>
                 </div>
             </div>
         `;
 
         cardsContainer.innerHTML += cardContent;
-
 
         classDoc.ref.collection('cards').get().then((cardsSnapshot) => {
             const cardCountElement = document.getElementById(`card-count-${classDoc.id}`);
@@ -140,8 +138,62 @@ async function displaySavedClasses(savedClasses) {
             }
         });
     }
+
+    // Add event listener for save/unsave buttons
+    cardsContainer.querySelectorAll('.save-deck').forEach(button => {
+        button.addEventListener('click', async () => {
+            const classId = button.getAttribute('data-deck-id');
+            const isSaved = button.getAttribute('data-saved') === 'true';
+
+            // Save or unsave the class
+            await saveOrUnsaveClass(classId, isSaved);
+
+            // Update button text and saved attribute
+            button.textContent = isSaved ? 'Save' : 'Unsave';
+            button.setAttribute('data-saved', (!isSaved).toString());
+        });
+    });
 }
 
+// Saving or Unsaving Classes
+async function saveOrUnsaveClass(classId, isSaved) {
+    const user = firebase.auth().currentUser;
+    if (!user) {
+        console.log("No user is signed in.");
+        return;
+    }
+
+    const currentUser = user.uid;
+    const userRef = firebase.firestore().collection('users').doc(currentUser);
+
+    try {
+        // Transaction ensures that partial updates don't happen. Function either finishes completely, or not at all.
+        await firebase.firestore().runTransaction(async (transaction) => {
+            const userDoc = await transaction.get(userRef);
+            if (!userDoc.exists) {
+                throw "User document does not exist!";
+            }
+            const userData = userDoc.data();
+            let savedClasses = userData.savedClasses || [];
+
+            // Save or unsave the class based on the current state
+            if (isSaved) {
+                savedClasses = savedClasses.filter(id => id !== classId);
+            } else {
+                savedClasses.push(classId);
+            }
+
+            // Update the user document with the new list of saved classes
+            transaction.update(userRef, { savedClasses: savedClasses });
+            console.log(`Class ${classId} ${isSaved ? 'unsaved' : 'saved'} successfully.`);
+
+            // Display pop-up notification
+            alert(`Class ${isSaved ? 'unsaved' : 'saved'} successfully!`);
+        });
+    } catch (error) {
+        console.error(`Error ${isSaved ? 'unsaving' : 'saving'} class to user:`, error);
+    }
+}
 
 //sends this message if there are no saved classes.
 function displayNoSavedClassesMessage() {
