@@ -7,6 +7,7 @@ function logout() {
   });
 }
 
+// function that opens and closes the hamburger menu
 document.getElementById('mobile-menu').addEventListener('click', function () {
   // Checks to make sure it's mobile query to prevent breaking the navbar in desktop mode
   if (window.innerWidth <= 700) {
@@ -20,6 +21,7 @@ document.getElementById('mobile-menu').addEventListener('click', function () {
   }
 });
 
+// automatically resets the hamburger menu when the wnidow is resized between media queries
 window.addEventListener('resize', function () {
   var menu = document.querySelector('.navbar-menu');
   // If media query returns to desktop mode, fixed broken navbar
@@ -31,6 +33,7 @@ window.addEventListener('resize', function () {
   }
 });
 
+// redirected user to loginh.html if they aren't logged in
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in, so you can allow them access to the page

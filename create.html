@@ -30,25 +30,42 @@
         <hr>
         </div>
 
+        <div id="customPrompt" class="custom-prompt-overlay" style="display:none;">
+            <div class="custom-prompt-content">
+                <span class="close-button">&times;</span>
+                <h2>Confirm Submission</h2>
+                <p>Are you sure you want to submit this form? Please check your information before continuing.</p>
+                <div class="prompt-actions">
+                    <button id="submitForm" class="prompt-confirm">Submit Form</button>
+                    <button id="cancelForm" class="prompt-cancel">Review My Information</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="successMessage" style="display: none;">Flashcard created successfully!</div>
+
+        
+
+
         <!-- CREATE A FLASHCARD AREA -->
         <div class="create-container">
             <h2>Create a Card! Wowee!</h2>
             <form id="new-card-form">
                 <div class="card-form-group">
                     <label for="topic">Class:</label>
-                    <input type="text" id="topic" required>
+                    <input type="text" id="topic" placeholder="Enter a class/topic name" required>
                 </div>
                 <div class="card-form-group">
                     <label for="question">Question:</label>
-                    <input type="text" id="question" required>
+                    <input type="text" id="question" placeholder="Enter a question" required>
                 </div>
                 <div class="card-form-group">
                     <label for="answer">Answer:</label>
-                    <input type="text" id="answer" required>
+                    <input type="text" id="answer" placeholder="Enter an answer" required>
                 </div>
                 <div class="card-form-group">
                     <label for="chapter">Details:</label>
-                    <input type="text" id="details">
+                    <input type="text" id="details" placeholder="Enter an optional sub-topic or chapter">
                 </div>
                 <button type="text" class="create-button">Create</button>
             </form>

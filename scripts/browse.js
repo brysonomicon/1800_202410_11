@@ -69,7 +69,7 @@ async function saveClassToUser(classId) {
   const userRef = firebase.firestore().collection('users').doc(currentUser);
 
   try {
-    //Transaction ensures that partial updates don't happen. unction either finishes completely, or not at all.
+    //Transaction ensures that partial updates don't happen. function either finishes completely, or not at all.
     await firebase.firestore().runTransaction(async (transaction) => {
       const userDoc = await transaction.get(userRef);
       if (!userDoc.exists) {
@@ -129,6 +129,8 @@ async function removeClassFromUser(classId) {
     console.error("Error removing class from user:", error);
   }
 }
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const cardsContainer = document.querySelector('.cards-container');
