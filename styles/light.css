@@ -32,9 +32,16 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 98vh;
+    font-family: "Josh", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: #ffdab9;
+    margin: 0px;
 }
 
-/* NAVBAR RELATED */
+
+
+/* NavBar Design */
 /* #region */
 .navbar {
     display: flex;
@@ -117,12 +124,20 @@ body {
 /* #region */
 main {
     grid-row: 2;
-    color: #f8f9f2;
+    color: #333;
+}
+
+h1{
+    padding: 10px;
+}
+
+#user-role-display{
+    padding: 10px;
 }
 
 .welcome {
     padding: 10% 0 0 5%;
-    color: #f8f9f2;
+    color: #333;
 }
 
 .login-button {
@@ -133,10 +148,9 @@ main {
 .login-button:hover {
     background-color: #F2AB2B;
 }
-
 /* #endregion */
 
-/* (Mobile) Cards Stylin Starts Here */
+/* Decks Design */
 /* #region */
 .cards-column {
     display: block;
@@ -380,59 +394,43 @@ footer {
 
 /* #endregion */
 
-/* PROFILE PAGE RELATEd */
+/* Profile Page Design */
 /* #region */
-
-.profile-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
 
 .profile-form-group {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 20px;
-    width: 50%;
+    width: auto;
 }
 
-.profile-form-group label{
-    font-size: 17px;
-    width: 150px;
-    margin-right: 20px;
-    text-align: right;
-}
-
-.profile-form-group input {
-    font-size: 15px;
-    flex-grow: 1;
-    border-radius: 5px;
-    color: black;
+.profile-form-group label {
+    width: 80px;
+    margin-right: 10px;
     text-align: left;
 }
 
-.profile-form-group output{
-    font-size: 17px;
+.profile-form-group input{
+    font-size: 15px;
+    width: auto;
 }
 
-.form-button{
-    display: flex;
-    justify-content: center;
+.profile-form {
+    padding: 10px;
 }
 
-.form-button > button{
+.form-button > button {
+    width: 45%;
+    height: 25px; 
     margin: 5px;
-    width: 100px;
-    height: 30px;
-    cursor:pointer;
 }
 
-#themeButtons{
+#themeButtons {
+    width: 100%;
+    height: auto;
     display: flex;
-    width: 500px;
-    height: 100px;
+    flex-direction: row;
     font-size: 10px;
     text-align: center;
 }
@@ -582,6 +580,74 @@ footer {
         padding: 10px;
     }
 
+    /* #endregion */
+
+    /* Profle Design (Large Screen) */
+    /* #region */
+    .profile-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    .profile-form-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 50%;
+    }
+    
+    .profile-form-group label{
+        font-size: 17px;
+        width: 150px;
+        margin-right: 20px;
+        text-align: right;
+    }
+    
+    .profile-form-group input {
+        font-size: 15px;
+        flex-grow: 1;
+        border-radius: 5px;
+        color: black;
+        text-align: left;
+    }
+    
+    .profile-form-group output{
+        font-size: 17px;
+    }
+    
+    .form-button{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .form-button > button{
+        margin: 5px;
+        width: 100px;
+        height: 30px;
+    }
+    
+    #themeButtons{
+        display: flex;
+        width: auto;
+        height: 100px;
+        font-size: 10px;
+        text-align: center;
+    }
+    .theme-card {
+        display: inline-block;
+        width: calc(33.33% - 20px);
+        /* Adjust the width as per your preference */
+        margin: 10px;
+        padding: 20px;
+        background-color: #f2ab2b;
+        /* Default background color */
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
     /* #endregion */
 
 }
