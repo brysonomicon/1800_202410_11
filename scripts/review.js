@@ -36,8 +36,11 @@ firebase.firestore().collection('decks').doc(subject).collection('cards').get().
             }
             displayFlashcard(cardIndex);
         } else {
+            if (document.getElementById("answer").innerHTML.trim() !== ""){
+                document.querySelector(".flashcard").click();
+            }
             document.getElementById("question").innerHTML = "";
-            document.getElementById("answer").innerHTML = "You've finished your card set.";
+            document.getElementById("answer").innerHTML = "End";
             document.getElementById("end").innerHTML = "You've finished your card set.";
             document.getElementById("nextButton").style.display = "none";
         }
@@ -45,6 +48,9 @@ firebase.firestore().collection('decks').doc(subject).collection('cards').get().
 
     document.getElementById("backButton").addEventListener("click", function () {
         if (cardIndex > 0) {
+            if (document.getElementById("answer").innerHTML.trim() !== ""){
+                document.querySelector(".flashcard").click();
+            }
             cardIndex--;
             displayFlashcard(cardIndex);
             document.getElementById("end").innerHTML = "";

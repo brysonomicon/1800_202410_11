@@ -130,6 +130,7 @@ main {
 .card {
     padding: 16px;
     background-color: #f2ab2b;
+    border-radius: 20px;
 }
 
 .button {
@@ -139,6 +140,7 @@ main {
     cursor: pointer;
     text-decoration: none;
     text-align: center;
+    border-radius: 20px;
 }
 
 /* #endregion */
@@ -286,7 +288,7 @@ footer {
     color: #f8f9f2;
 }
 
-/* #region FlashCardContainer */
+/* #region REVIEW FLASHCARD*/
 .flashcard-container {
     perspective: 1000px;
     display: flex;
@@ -316,6 +318,7 @@ footer {
     justify-content: center;
     position: absolute;
     backface-visibility: hidden;
+    border-radius: 20px;
 }
 
 .frontofcard {
@@ -346,14 +349,69 @@ footer {
 }
 
 .buttons>button {
-    height: 30px;
+    height: 40px;
     width: 100px;
+    background-color: #f2ab2b;
+    border-radius: 20px;
 }
 
 /* #endregion */
 
 /* PROFILE PAGE RELATEd */
 /* #region */
+
+.profile-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.profile-form-group label{
+    font-size: 17px;
+    width: 150px;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.profile-form-group input {
+    font-size: 15px;
+    flex-grow: 1;
+    border-radius: 5px;
+    color: black;
+    text-align: left;
+}
+
+.profile-form-group output{
+    font-size: 17px;
+}
+
+.form-button{
+    display: flex;
+    justify-content: center;
+}
+
+.form-button > button{
+    margin: 5px;
+    width: 100px;
+    height: 30px;
+}
+
+#themeButtons{
+    display: flex;
+    width: 500px;
+    height: 100px;
+    font-size: 10px;
+    text-align: center;
+}
 .theme-card {
     display: inline-block;
     width: calc(33.33% - 20px);
