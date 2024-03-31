@@ -189,6 +189,65 @@ main {
     border-radius: 4px;
 }
 
+#successMessage {
+    background-color: greenyellow;
+    color: black;
+    text-align: center;
+}
+
+/* Custom modal for prompt to confirm submission */
+.custom-prompt-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-prompt-content {
+    background: #f2ab2b;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.close-button {
+    float: right;
+    cursor: pointer;
+}
+
+/* Custom modal for save/unsave function */
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
+  .modal-content {
+    background: #f2ab2b;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px; /* Adjust based on your preference */
+  }
+  
+  .close-modal-button {
+    float: right;
+    cursor: pointer;
+  }
+
 /* #endregion */
 /* da foot */
 

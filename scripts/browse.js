@@ -130,8 +130,6 @@ async function removeClassFromUser(classId) {
   }
 }
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const cardsContainer = document.querySelector('.cards-container');
 
@@ -140,38 +138,95 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (saveButton) {
       const classId = saveButton.getAttribute('data-deck-id');
-      // Check if the clicked element or any of its parents have the 'save-deck' class
       console.log('Attempting to toggle save for classId:', classId);
 
-      // Check if the button text is "Save"
+      const modal = document.getElementById('feedbackModal');
+      const modalMessage = document.getElementById('modalMessage');
+      const closeModal = document.querySelector('.close-modal-button');
+
+      closeModal.onclick = function() {
+        modal.style.display = "none";
+      }
+
       if (saveButton.textContent === 'Save') {
-        // Function to save the class to the user's saved classes
         saveClassToUser(classId)
           .then(() => {
-            // Change the button text to "Unsave"
-            saveButton.textContent = 'Unsave'; 
-            alert('Class saved successfully!');
+            saveButton.textContent = 'Unsave';
+            modalMessage.textContent = 'Class saved successfully!';
+            modal.style.display = "flex";
           })
           .catch((error) => {
             console.error('Error saving class:', error);
-            alert('Failed to save class.');
+            modalMessage.textContent = 'Failed to save class.';
+            modal.style.display = "flex";
           });
       } else {
-        // Remove the class from the user's saved classes
         removeClassFromUser(classId)
           .then(() => {
-            // Change the button text to "Save"
-            saveButton.textContent = 'Save'; 
-            alert('Class unsaved successfully!');
+            saveButton.textContent = 'Save';
+            modalMessage.textContent = 'Class unsaved successfully!';
+            modal.style.display = "flex";
           })
           .catch((error) => {
             console.error('Error removing class:', error);
-            alert('Failed to unsaved class.');
+            modalMessage.textContent = 'Failed to unsaved class.';
+            modal.style.display = "flex";
           });
       }
     }
   });
+
+  // Close the modal when clicking outside of it
+  window.onclick = function(event) {
+    const modal = document.getElementById('feedbackModal');
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 });
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const cardsContainer = document.querySelector('.cards-container');
+
+//   cardsContainer.addEventListener('click', (event) => {
+//     const saveButton = event.target.closest('.save-button');
+
+//     if (saveButton) {
+//       const classId = saveButton.getAttribute('data-deck-id');
+//       // Check if the clicked element or any of its parents have the 'save-deck' class
+//       console.log('Attempting to toggle save for classId:', classId);
+
+//       // Check if the button text is "Save"
+//       if (saveButton.textContent === 'Save') {
+//         // Function to save the class to the user's saved classes
+//         saveClassToUser(classId)
+//           .then(() => {
+//             // Change the button text to "Unsave"
+//             saveButton.textContent = 'Unsave'; 
+//             alert('Class saved successfully!');
+//           })
+//           .catch((error) => {
+//             console.error('Error saving class:', error);
+//             alert('Failed to save class.');
+//           });
+//       } else {
+//         // Remove the class from the user's saved classes
+//         removeClassFromUser(classId)
+//           .then(() => {
+//             // Change the button text to "Save"
+//             saveButton.textContent = 'Save'; 
+//             alert('Class unsaved successfully!');
+//           })
+//           .catch((error) => {
+//             console.error('Error removing class:', error);
+//             alert('Failed to unsaved class.');
+//           });
+//       }
+//     }
+//   });
+// });
 
 
 

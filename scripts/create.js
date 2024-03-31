@@ -43,13 +43,13 @@ document.getElementById('submitForm').addEventListener('click', async function (
         await addFlashcard(deckId, question, answer, details);
         console.log("Flashcard created successfully!");
 
-        // Reset form fields here since submission is confirmed
+        // resets the fields after successful submission
         document.getElementById('topic').value = '';
         document.getElementById('question').value = '';
         document.getElementById('answer').value = '';
         document.getElementById('details').value = '';
 
-        // Show success message
+        // show success message
         const successMessage = document.getElementById('successMessage');
         successMessage.style.display = 'block';
 
