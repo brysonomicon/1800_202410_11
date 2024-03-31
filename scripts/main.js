@@ -155,11 +155,11 @@ async function displaySavedClasses(savedClasses) {
     });
 }
 
-// Saving or Unsaving Classes
 async function saveOrUnsaveClass(classId, isSaved) {
     const user = firebase.auth().currentUser;
     if (!user) {
         console.log("No user is signed in.");
+        showModal("No user is signed in."); // Use modal for feedback
         return;
     }
 
@@ -167,7 +167,6 @@ async function saveOrUnsaveClass(classId, isSaved) {
     const userRef = firebase.firestore().collection('users').doc(currentUser);
 
     try {
-        // Transaction ensures that partial updates don't happen. Function either finishes completely, or not at all.
         await firebase.firestore().runTransaction(async (transaction) => {
             const userDoc = await transaction.get(userRef);
             if (!userDoc.exists) {
@@ -176,24 +175,46 @@ async function saveOrUnsaveClass(classId, isSaved) {
             const userData = userDoc.data();
             let savedClasses = userData.savedClasses || [];
 
-            // Save or unsave the class based on the current state
             if (isSaved) {
                 savedClasses = savedClasses.filter(id => id !== classId);
             } else {
                 savedClasses.push(classId);
             }
 
-            // Update the user document with the new list of saved classes
             transaction.update(userRef, { savedClasses: savedClasses });
             console.log(`Class ${classId} ${isSaved ? 'unsaved' : 'saved'} successfully.`);
-
-            // Display pop-up notification
-            alert(`Class ${isSaved ? 'unsaved' : 'saved'} successfully!`);
+            showModal(`Class ${classId} ${isSaved ? 'unsaved' : 'saved'} successfully!`); // Use modal for feedback
         });
     } catch (error) {
         console.error(`Error ${isSaved ? 'unsaving' : 'saving'} class to user:`, error);
+        showModal(`Error ${isSaved ? 'unsaving' : 'saving'} class.`); // Use modal for error feedback
     }
 }
+
+function showModal(message) {
+    const modal = document.getElementById('feedbackModal');
+    const modalMessage = document.getElementById('modalMessage');
+    const closeModal = document.querySelector('.close-modal-button');
+
+    // Setting message
+    modalMessage.textContent = message;
+
+    // Showing the modal
+    modal.style.display = "flex";
+
+    // Closing the modal on clicking the close button
+    closeModal.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Also consider closing the modal when clicking outside of it (optional)
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
 
 //sends this message if there are no saved classes.
 function displayNoSavedClassesMessage() {
