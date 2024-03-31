@@ -116,12 +116,15 @@ h1{
 }
 
 .login-button {
+    border-radius: 20px;
     padding: 10px 20px 10px 20px;
-    background-color: #f8f9f2;
+    color: #FFFFFF;
+    background-color: #F2AB2B;
+    cursor: pointer;
 }
 
 .login-button:hover {
-    background-color: #F2AB2B;
+    background-color: #c83742;
 }
 /* #endregion */
 
@@ -356,7 +359,7 @@ footer {
 .buttons>button {
     height: 40px;
     width: 100px;
-    background-color: #f2ab2b;
+    background-color: #3C3C3C;
     border-radius: 20px;
     cursor: pointer;
 }
@@ -505,12 +508,11 @@ footer {
     }
 
     .button {
-        background-color: black;
-        color: #f8f9f2;
-        padding: 10px 20px;
+        height: 40px;
+        width: 100px;
+        background-color: #3C3C3C;
+        border-radius: 20px;
         cursor: pointer;
-        text-decoration: none;
-        text-align: center;
     }
 
     /* Cards Styling End Here */
