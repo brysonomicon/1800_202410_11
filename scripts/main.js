@@ -45,27 +45,25 @@ firebase.auth().onAuthStateChanged(function (user) {
 //Applies user role
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
-
         const userPointer = firebase.firestore().collection('users').doc(user.uid);
         userPointer.get().then(doc => {
             if (doc.exists) {
-
                 const userData = doc.data();
-                const userRole = userData.role || 'Standard';
+                // Check if the verifier field exists and is true, otherwise use the role field or default to 'Standard'
+                const userRole = userData.verifier ? 'Verifier' : (userData.role || 'Standard');
 
                 document.getElementById('user-role-display').textContent = userRole;
             } else {
                 console.log("User document not found");
-
             }
         }).catch(error => {
-
+            console.error("Error fetching user data:", error);
         });
     } else {
         console.log("Not signed in.");
-
     }
 });
+
 
 //turned that ugly callback hell function into something more readable.
 firebase.auth().onAuthStateChanged(async function (user) {

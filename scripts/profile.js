@@ -90,6 +90,27 @@ function saveUserInfo() {
 
 }
 
+function requestVerifierRole() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            const currentUser = db.collection("users").doc(user.uid);
+            currentUser.update({
+                verifier: true
+            }).then(() => {
+                console.log("User role updated to verifier successfully!");
+                showModal("Your role has been updated to Verifier.");
+                document.getElementById("roleOutput").value = "Verifier"; // Update role display
+            }).catch(error => {
+                console.error("Error updating user role:", error);
+                showModal("Failed to update your role. Please try again.");
+            });
+        } else {
+            console.log("No user is logged in.");
+            showModal("You need to be logged in to request a role.");
+        }
+    });
+}
+
 
 function editUserInfo() {
   //Enable the form fields
