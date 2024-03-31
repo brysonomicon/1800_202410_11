@@ -3,7 +3,7 @@
 /* Styles for light mode */
 body {
   background-color: #ffdab9; /* background color for light mode */
-  color: #333; /* text color for light mode */
+  color: #FFFFFF; /* text color for light mode */
 }
 
 .theme-card {
@@ -15,10 +15,18 @@ body {
 }
 
 
-/*  #f8f9f2(white) #0c83742(red) #f2ab2b(gold) */
+/* THIS IS DEFAULT STYLESHEET */
 /* MOBILE FIRST MEDIA QUERY */
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+html {
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    /* background-color: #FFFFFF; */
+}
 
 body {
     display: grid;
@@ -41,7 +49,6 @@ body {
     align-items: center;
     justify-content: space-evenly;
     background-color: #F2AB2B;
-    color: #333;
     padding: 20px;
 }
 
@@ -59,7 +66,7 @@ body {
 .navbar-toggle .bar {
     width: 25px;
     height: 3px;
-    background-color: #333;
+    background-color: #09181c;
 }
 
 .navbar-menu {
@@ -75,8 +82,8 @@ body {
     text-align: center;
     margin: 7px 0;
     text-decoration: none;
-    color: #333;
-    background-color: #f2f2f2;
+    color: #C83742;
+    cursor: pointer;
 }
 
 .navbar-links {
@@ -91,11 +98,12 @@ body {
 
 .navbar-links:hover {
     background-color: #C83742;
+
 }
 
 .search-btn {
     padding: 8px 15px;
-    border: none;
+    border-radius:20px;
     background-color: #09181C;
 }
 
@@ -151,7 +159,7 @@ h1{
 
 .card {
     padding: 16px;
-    background-color: #708090;
+    background-color: #f2ab2b;
     border-radius: 20px;
 }
 
@@ -198,11 +206,16 @@ h1{
     border-radius: 4px;
 }
 
+.create-button {
+    cursor: pointer;
+}
+
 #successMessage {
     background-color: greenyellow;
     color: black;
     text-align: center;
 }
+
 
 /* Custom modal for prompt to confirm submission */
 .custom-prompt-overlay {
@@ -256,6 +269,9 @@ h1{
     float: right;
     cursor: pointer;
   }
+  
+
+
 
 /* #endregion */
 /* da foot */
@@ -307,7 +323,7 @@ footer {
     color: #f8f9f2;
 }
 
-/* #region FlashCardContainer */
+/* #region REVIEW FLASHCARD*/
 .flashcard-container {
     perspective: 1000px;
     display: flex;
@@ -337,6 +353,8 @@ footer {
     justify-content: center;
     position: absolute;
     backface-visibility: hidden;
+    border-radius: 20px;
+    cursor:pointer;
 }
 
 .frontofcard {
@@ -367,8 +385,11 @@ footer {
 }
 
 .buttons>button {
-    height: 30px;
+    height: 40px;
     width: 100px;
+    background-color: #f2ab2b;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 /* #endregion */
@@ -416,19 +437,23 @@ footer {
 
 .theme-card {
     display: inline-block;
-    width: calc(33.33% - 20px); /* Adjust the width as per your preference */
+    width: calc(33.33% - 20px);
+    /* Adjust the width as per your preference */
     margin: 10px;
     padding: 20px;
-    background-color: #f2ab2b; /* Default background color */
+    background-color: #f2ab2b;
+    /* Default background color */
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-  
-  .theme-card:hover {
-      background-color: #e0e0e0; /* Background color on hover */
-  }
-  /* #endregion */    
+
+.theme-card:hover {
+    background-color: #e0e0e0;
+    /* Background color on hover */
+}
+
+/* #endregion */
 
 /* MEDIA QUERY FOR LARGER SCREENS */
 @media (min-width: 701px) {
@@ -554,6 +579,7 @@ footer {
         margin: 0;
         padding: 10px;
     }
+
     /* #endregion */
 
     /* Profle Design (Large Screen) */

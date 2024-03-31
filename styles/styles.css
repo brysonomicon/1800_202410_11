@@ -6,11 +6,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-html {
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 98vh;
     font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    background-color: black;
+    background-color: #3C3C3C;
+    margin: 0px;
+
 }
 
 body {
@@ -44,7 +49,7 @@ body {
 .navbar-toggle .bar {
     width: 25px;
     height: 3px;
-    background-color: #09181c;
+    background-color: #FFFFFF;
 }
 
 .navbar-menu {
@@ -60,28 +65,28 @@ body {
     text-align: center;
     margin: 7px 0;
     text-decoration: none;
-    color: #C83742;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
 .navbar-links {
     border: none;
-    background-color: #f8f9f2;
+    background-color: #3C3C3C;
     padding: 10px 0 10px 0;
     margin-right: 40%;
     margin-left: 30%;
-    color: #09181C;
-    border-radius: 25px;
+    color: #FFFFFF;
 }
 
 .navbar-links:hover {
-    background-color: #C83742;
-
+    background-color:#c83742;
 }
 
 .search-btn {
+    display:none;
     padding: 8px 15px;
-    border: none;
-    background-color: #09181C;
+    border-radius:20px;
+    background-color: #3C3C3C;
 }
 
 .navbar-search {
@@ -176,11 +181,16 @@ main {
     border-radius: 4px;
 }
 
+.create-button {
+    cursor: pointer;
+}
+
 #successMessage {
     background-color: greenyellow;
     color: black;
     text-align: center;
 }
+
 
 /* Custom modal for prompt to confirm submission */
 .custom-prompt-overlay {
@@ -255,8 +265,8 @@ main {
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #09181c;
-    background-color: #f8f9f2;
+    color: #FFFFFF;
+    background-color: #F2AB2B;
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
@@ -315,6 +325,7 @@ footer {
     position: absolute;
     backface-visibility: hidden;
     border-radius: 20px;
+    cursor:pointer;
 }
 
 .frontofcard {
@@ -349,6 +360,7 @@ footer {
     width: 100px;
     background-color: #f2ab2b;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 /* #endregion */
@@ -399,6 +411,7 @@ footer {
     margin: 5px;
     width: 100px;
     height: 30px;
+    cursor:pointer;
 }
 
 #themeButtons{
@@ -408,6 +421,7 @@ footer {
     font-size: 10px;
     text-align: center;
 }
+
 .theme-card {
     display: inline-block;
     width: calc(33.33% - 20px);
@@ -458,12 +472,16 @@ footer {
 
     .navbar-links:hover {
         background-color: #F2AB2B;
-        color: #f8f9f2;
+        color: #c83742;
     }
 
     .navbar-search {
         margin-left: 5px;
         justify-content: flex-end;
+    }
+
+    .search-btn:hover {
+        color: #c83742;
     }
 
     .navbar-search input {
