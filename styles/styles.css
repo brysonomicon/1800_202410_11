@@ -15,13 +15,6 @@ body {
     font-style: normal;
     background-color: #3C3C3C;
     margin: 0px;
-
-}
-
-body {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 98vh;
 }
 
 /* NAVBAR RELATED */
@@ -113,6 +106,14 @@ main {
     color: #FFFFFF;
 }
 
+h1{
+    padding: 10px;
+}
+
+#user-role-display{
+    padding: 10px;
+}
+
 .welcome {
     padding: 10% 0 0 5%;
     color: #f8f9f2;
@@ -129,10 +130,9 @@ main {
 .login-button:hover {
     background-color: #c83742;
 }
-
 /* #endregion */
 
-/* (Mobile) Cards Stylin Starts Here */
+/* DECK DESIGN  */
 /* #region */
 .cards-column {
     display: block;
@@ -160,7 +160,6 @@ main {
 }
 
 /* #endregion */
-/* Cards Styling End Here */
 
 /* Create a Card Form Style */
 /* #region */
