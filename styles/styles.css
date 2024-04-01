@@ -13,19 +13,25 @@ body {
     font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    font-size:16px;
     background-color: #3C3C3C;
-    margin: 0px;
+    margin: 0;
 }
 
 /* NAVBAR RELATED */
 /* #region */
 .navbar {
+    overflow: hidden;
+    position:fixed;
+    top: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     background-color: #F2AB2B;
-    padding: 20px;
+    padding: 10px;
+    font-size: 20px;
 }
 
 .navbar-logo img {
@@ -40,7 +46,7 @@ body {
 }
 
 .navbar-toggle .bar {
-    width: 25px;
+    width: 30px;
     height: 3px;
     background-color: #FFFFFF;
 }
@@ -50,7 +56,6 @@ body {
     width: 100%;
     list-style: none;
 }
-
 
 
 .navbar-links,
@@ -65,8 +70,9 @@ body {
 }
 
 .navbar-links {
-    border-radius: 20px;
+    border-radius: 25px;
     background-color: #3C3C3C;
+    font-size: 16px;
     padding: 10px 0 10px 0;
     margin-right: 40%;
     margin-left: 30%;
@@ -79,9 +85,10 @@ body {
 }
 
 .search-btn {
-    display:none;
-    padding: 8px 15px;
-    border-radius:20px;
+    visibility: hidden;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius:25px;
     background-color: #3C3C3C;
     transition: background-color 0.3s ease;
 }
@@ -93,12 +100,19 @@ body {
 .navbar-search {
     display: flex;
     justify-content: center;
+    padding: 10px 0 10px 0;
+    margin-right: 10%;
+    margin-left: 5%;
     width: 100%;
 }
 
 .navbar-search input {
-    padding: 5px;
-    margin-right: 5px;
+    display: flex;
+    border-radius: 30px;
+    width: 150px;
+    height: 45px;
+    font-size: 16px;
+    text-align: center;
 }
 
 
@@ -109,14 +123,17 @@ body {
 main {
     grid-row: 2;
     color: #FFFFFF;
+    padding: 16px;
+    margin-top: 140px;
 }
 
 h1{
-    padding: 10px;
+    padding: 20px;
 }
 
 #user-role-display{
     padding: 10px;
+    margin-left: 10px;
 }
 
 .welcome {
@@ -136,6 +153,7 @@ h1{
 .login-button:hover {
     background-color: #c83742;
 }
+
 /* #endregion */
 
 /* DECK DESIGN  */
@@ -143,11 +161,14 @@ h1{
 .cards-column {
     display: block;
     margin-bottom: 10px;
+    padding: 10px;
 }
 
 .card {
     padding: 16px;
     background-color: #f2ab2b;
+    box-shadow: 0 9px #999;
+
     border-radius: 20px;
 }
 
@@ -187,22 +208,25 @@ h1{
 }
 
 .card-form-group label {
-    width: 150px;
+    width: 200px;
     margin-right: 10px;
     text-align: right;
 }
 
 .card-form-group input {
     flex-grow: 1;
+    font-size: 16px;
     padding: 5px;
     border: 1px solid #f8f9f2;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 .create-button {
-    /* margin: 5px; */
+    margin-top: 20px;
+    margin-left: 80px;
     width: 30%;
-    height: 30px;
+    height: 40px;
+    font-size: 16px;
     cursor:pointer;
     border-radius: 20px;
     color:#FFFFFF;
@@ -291,7 +315,8 @@ h1{
 
 .action-button {
     display: inline-block;
-    padding: 10px 20px;
+    grid-row:2;
+    padding: 10px 20px; 
     margin: 20px;
     font-size: 16px;
     cursor: pointer;
@@ -300,12 +325,16 @@ h1{
     outline: none;
     color: #FFFFFF;
     background-color: #F2AB2B;
-    border: none;
-    border-radius: 15px;
+    border-radius: 20px;
     box-shadow: 0 9px #999;
     transition: background-color 0.3s ease;
 }
 
+
+.button-container {
+    justify-content:center;
+    align-items: center;
+}
 
 
 .action-button:active {
@@ -416,26 +445,28 @@ footer {
 
 .profile-form-group label{
     width: 80px;
+    font-size: 16px;
     margin-right: 10px;
     text-align: left;
 }
 
 .profile-form-group input {
-    font-size: 15px;
-    border-radius: 5px;
+    font-size: 16px;
+    border-radius: 10px;
     color:#3C3C3C;
     width: auto;
 }
 
 .profile-form {
-    padding: 10px;
+    padding: 20px;
     border-radius: 20px;
 }
 
 .form-button > button{
+    font-size: 16px;
     margin: 5px;
-    width: 45%;
-    height: 25px;
+    width: 35%;
+    height: 20%;
     border-radius: 20px;
     color:#FFFFFF;
     background-color:#3C3C3C;
@@ -444,7 +475,7 @@ footer {
 .button-edit:hover, .button-save:hover {
     background-color: #c83742;
     cursor:pointer;
-
+    transition: background-color 0.3s ease;
 }
 
 #themeButtons{
@@ -452,7 +483,7 @@ footer {
     width: 100%;
     height: auto;
     flex-direction: row;
-    font-size: 10px;
+    font-size: 16px;
     text-align: center;
 }
 
@@ -464,7 +495,7 @@ footer {
     padding: 20px;
     background-color: #f2ab2b;
     /* Default background color */
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -479,10 +510,14 @@ footer {
 /* MEDIA QUERY FOR LARGER SCREENS */
 @media (min-width: 701px) {
     .navbar {
-        position:sticky;
-        top:0;
+        display: inline-flex;
+        overflow: hidden;
+        position:fixed;
+        top: 0;
+        width: 100%;
         flex-direction: row;
         justify-content: space-evenly;
+        font-size: 16px;
     }
 
     .navbar-toggle {
@@ -495,25 +530,24 @@ footer {
     }
 
     .navbar-menu li:last-child .navbar-links {
-        margin-left: 100px;
+        display: inline-flex;
+        text-align: right;
+        margin-left: 150px;
         color: gray;
-        transition: color 0.3s ease;
-
     }
 
     .navbar-menu li:last-child .navbar-links:hover {
         color: #c83742;
-    }
-
-    .navbar-links {
-        margin-left: 20px;
-        padding: 0px;
-        border-radius: 0px;
-        background-color: #F2AB2B;
         transition: color 0.3s ease;
 
     }
 
+    .navbar-links {
+        margin-left: 40px;
+        padding: 0px;
+        background-color: #F2AB2B;
+        transition: color 0.3s ease;
+    }
 
     .navbar-links:hover {
         background-color: #F2AB2B;
@@ -525,33 +559,52 @@ footer {
         justify-content: flex-end;
     }
 
+    .search-btn {
+        visibility: visible;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
     .search-btn:hover {
         color: #FFFFFF;
         background-color: #c83742;
     }
 
     .navbar-search input {
-        margin-right: 10px;
+        margin-right: 20px;
+        font-size: 16px;
+        border-radius: 25px;
+        width: 400px;
+        
     }
-
-    
 
     /* (Large Screen) Cards Styling Start Here */
     .cards-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: center;
         padding: 10px;
     }
 
+    .saved-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
     .cards-column {
         width: 45%;
-        height: 200px;
+        margin: 10px;
     }
 
     .card {
-        margin: 4%;
+        margin: 10px;
         background-color: #F2AB2B;
+    }
+
+    .action-button {
+        justify-content: center;
+        align-items: center;
     }
 
     .action-button:hover {
@@ -634,31 +687,34 @@ footer {
         padding: 20px;
     }
 
-    .profile-form-group{
+    .profile-form-group {
         display: flex;
         flex-direction: row;
         align-items: center;
         margin-bottom: 20px;
-        width: 50%;
+        width: auto;
     }
 
     .profile-form-group label{
-        font-size: 17px;
-        width: 150px;
-        margin-right: 20px;
-        text-align: right;
-    }
-
-    .profile-form-group input{
-        font-size: 15px;
-        flex-grow: 1;
-        border-radius: 5px;
-        color:#3C3C3C;
+        width: 80px;
+        font-size: 16px;
+        margin-right: 10px;
         text-align: left;
     }
 
+    .profile-form-group input{
+        font-size: 16px;
+        border-radius: 10px;
+        color:#3C3C3C;
+        width: auto;
+        text-align: left;
+        
+    }
+
     .profile-form-group output{
-        font-size: 17px;
+        font-size: 16px;
+        margin-left:-15px;
+        margin-right: 120px;
     }
 
     .form-button{
@@ -667,16 +723,16 @@ footer {
     }
 
     .form-button > button{
-        margin: 5px;
-        width: 100px;
-        height: 30px;
+        margin: 10px;
+        width: 150px;
+        height: 40px;
     }
 
     #themeButtons{
         display: flex;
         width: auto;
         height: 100px;
-        font-size: 10px;
+        font-size: 16px;
         text-align: center;
         
     }
