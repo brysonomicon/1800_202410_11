@@ -510,13 +510,13 @@ footer {
 /* MEDIA QUERY FOR LARGER SCREENS */
 @media (min-width: 701px) {
     .navbar {
-        display: inline-flex;
+        display: flex;
         overflow: hidden;
         position:fixed;
         top: 0;
         width: 100%;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-between;
         font-size: 16px;
     }
 
@@ -527,16 +527,25 @@ footer {
     .navbar-menu {
         display: flex;
         align-items: center;
+        position: relative;
+        justify-content: space-between;
+        width:100%;
+        max-width: 1920px;
+        /* margin: 0 auto; */
     }
 
-    .navbar-menu li:last-child .navbar-links {
-        display: inline-flex;
-        text-align: right;
-        margin-left: 150px;
+    .navbar-menu li:not(:last-child) {
+        margin-right: 10px;
+    }
+    .navbar-menu li:last-child {
+        margin-left: auto;
+    }
+    .navbar-menu li:last-child a {
         color: gray;
+        font-size: 16px;
     }
 
-    .navbar-menu li:last-child .navbar-links:hover {
+    .navbar-menu li:last-child a:hover {
         color: #c83742;
         transition: color 0.3s ease;
 
@@ -555,7 +564,6 @@ footer {
     }
 
     .navbar-search {
-        margin-left: 5px;
         justify-content: flex-end;
     }
 
@@ -573,8 +581,10 @@ footer {
     .navbar-search input {
         margin-right: 20px;
         font-size: 16px;
-        border-radius: 25px;
-        width: 400px;
+        border-radius: 30px;
+        margin-top: 7px;
+        width: 200px;
+        outline-color: #c83742;
         
     }
 
@@ -741,8 +751,9 @@ footer {
         display: inline-block;
         width: calc(33.33% - 20px);
         /* Adjust the width as per your preference */
-        margin: 10px;
-        padding: 20px;
+        /* margin: 10px; */
+        padding: 10px;
+        height: 80px;
         background-color: #f2ab2b;
         /* Default background color */
         border-radius: 10px;
