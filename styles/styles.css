@@ -422,6 +422,8 @@ footer {
 
 .profile-form-group input {
     font-size: 15px;
+    border-radius: 5px;
+    color:#3C3C3C;
     width: auto;
 }
 
