@@ -18,6 +18,8 @@ firebase.firestore().collection('decks').doc(subject).collection('cards').get().
         const cardData = flashcardsList[index];
         document.getElementById("question").innerHTML = cardData.question;
         document.getElementById("answer").innerHTML = "";
+        document.getElementById("cardCounter").innerHTML = `${index + 1} / ${flashcardsList.length}`;
+
     }
 
     displayFlashcard(cardIndex);

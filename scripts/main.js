@@ -64,7 +64,6 @@ firebase.auth().onAuthStateChanged(user => {
     }
 });
 
-
 //turned that ugly callback hell function into something more readable.
 firebase.auth().onAuthStateChanged(async function (user) {
     //if no user is logged in, send the client to the login page. ain't no random users gettin in here!

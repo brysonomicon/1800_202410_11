@@ -21,12 +21,6 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-html {
-    font-family: "Jost", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    /* background-color: #FFFFFF; */
-}
 
 body {
     display: grid;
@@ -94,6 +88,8 @@ body {
     margin-left: 30%;
     color: #09181C;
     border-radius: 25px;
+    transition: background-color 0.3s ease;
+
 }
 
 .navbar-links:hover {
@@ -143,6 +139,8 @@ h1{
 .login-button {
     padding: 10px 20px 10px 20px;
     background-color: #f8f9f2;
+    transition: background-color 0.3s ease;
+
 }
 
 .login-button:hover {
@@ -278,7 +276,7 @@ h1{
 /* #region */
 .button-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     width: 100%;
 }
@@ -297,6 +295,7 @@ h1{
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    transition: background-color 0.3s ease;
 }
 
 .action-button:hover {
@@ -416,6 +415,7 @@ footer {
 
 .profile-form {
     padding: 10px;
+    border-radius: 20px;
 }
 
 .form-button > button {
@@ -447,7 +447,7 @@ footer {
 }
 
 .theme-card:hover {
-    background-color: #e0e0e0;
+    background-color: #c83742;
     /* Background color on hover */
 }
 
@@ -474,11 +474,16 @@ footer {
         color: gray;
     }
 
+    .navbar-menu li:last-child .navbar-links:hover {
+        color: #C83742;
+    }
+
     .navbar-links {
         margin-left: 20px;
         padding: 0px;
         border-radius: 0px;
         background-color: #F2AB2B;
+        transition: background-color 0.3s ease;
     }
 
     .navbar-links:hover {
@@ -494,6 +499,7 @@ footer {
     .navbar-search input {
         margin-right: 10px;
     }
+    
 
 
     /* (Large Screen) Cards Styling Start Here */
@@ -501,6 +507,7 @@ footer {
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
+        padding: 10px;
     }
 
     .cards-column {

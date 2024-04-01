@@ -51,6 +51,8 @@ body {
     list-style: none;
 }
 
+
+
 .navbar-links,
 .navbar-search button {
     display: flex;
@@ -69,6 +71,7 @@ body {
     margin-right: 40%;
     margin-left: 30%;
     color: #FFFFFF;
+    transition: background-color 0.3s ease;
 }
 
 .navbar-links:hover {
@@ -80,6 +83,7 @@ body {
     padding: 8px 15px;
     border-radius:20px;
     background-color: #3C3C3C;
+    transition: background-color 0.3s ease;
 }
 
 .search-btn:hover {
@@ -96,6 +100,7 @@ body {
     padding: 5px;
     margin-right: 5px;
 }
+
 
 /* #endregion */
 
@@ -125,6 +130,7 @@ h1{
     color: #FFFFFF;
     background-color: #F2AB2B;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .login-button:hover {
@@ -153,6 +159,8 @@ h1{
     text-decoration: none;
     text-align: center;
     border-radius: 20px;
+    transition: background-color 0.3s ease;
+
 }
 
 .button:hover {
@@ -192,12 +200,23 @@ h1{
 }
 
 .create-button {
-    cursor: pointer;
+    /* margin: 5px; */
+    width: 30%;
+    height: 30px;
+    cursor:pointer;
+    border-radius: 20px;
+    color:#FFFFFF;
+    background-color:#3C3C3C;
+    transition:background-color 0.3s ease;
+}
+
+.create-button:hover {
+    background-color: #c83742;
 }
 
 #successMessage {
     background-color: greenyellow;
-    color: black;
+    color: #FFFFFF;
     text-align: center;
 }
 
@@ -265,7 +284,7 @@ h1{
 /* #region */
 .button-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; 
     align-items: center;
     width: 100%;
 }
@@ -284,11 +303,10 @@ h1{
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    transition: background-color 0.3s ease;
 }
 
-.action-button:hover {
-    background-color: #c83742
-}
+
 
 .action-button:active {
     background-color: #c83742;
@@ -372,9 +390,15 @@ footer {
 .buttons>button {
     height: 40px;
     width: 100px;
+    color: #FFFFFF;
     background-color: #3C3C3C;
     border-radius: 20px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttons>button:hover {
+    background-color: #c83742;
 }
 
 /* #endregion */
@@ -382,56 +406,50 @@ footer {
 /* PROFILE PAGE RELATEd */
 /* #region */
 
-.profile-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
 .profile-form-group {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 20px;
-    width: 50%;
+    width: auto;
 }
 
 .profile-form-group label{
-    font-size: 17px;
-    width: 150px;
-    margin-right: 20px;
-    text-align: right;
+    width: 80px;
+    margin-right: 10px;
+    text-align: left;
 }
 
 .profile-form-group input {
     font-size: 15px;
-    flex-grow: 1;
-    border-radius: 5px;
-    color: black;
-    text-align: left;
+    width: auto;
 }
 
-.profile-form-group output{
-    font-size: 17px;
-}
-
-.form-button{
-    display: flex;
-    justify-content: center;
+.profile-form {
+    padding: 10px;
+    border-radius: 20px;
 }
 
 .form-button > button{
     margin: 5px;
-    width: 100px;
-    height: 30px;
+    width: 45%;
+    height: 25px;
+    border-radius: 20px;
+    color:#FFFFFF;
+    background-color:#3C3C3C;
+}
+
+.button-edit:hover, .button-save:hover {
+    background-color: #c83742;
     cursor:pointer;
+
 }
 
 #themeButtons{
     display: flex;
-    width: 500px;
-    height: 100px;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
     font-size: 10px;
     text-align: center;
 }
@@ -450,7 +468,7 @@ footer {
 }
 
 .theme-card:hover {
-    background-color: #e0e0e0;
+    background-color: #c83742;
     /* Background color on hover */
 }
 
@@ -459,6 +477,8 @@ footer {
 /* MEDIA QUERY FOR LARGER SCREENS */
 @media (min-width: 701px) {
     .navbar {
+        position:sticky;
+        top:0;
         flex-direction: row;
         justify-content: space-evenly;
     }
@@ -475,6 +495,12 @@ footer {
     .navbar-menu li:last-child .navbar-links {
         margin-left: 100px;
         color: gray;
+        transition: color 0.3s ease;
+
+    }
+
+    .navbar-menu li:last-child .navbar-links:hover {
+        color: #c83742;
     }
 
     .navbar-links {
@@ -482,7 +508,10 @@ footer {
         padding: 0px;
         border-radius: 0px;
         background-color: #F2AB2B;
+        transition: color 0.3s ease;
+
     }
+
 
     .navbar-links:hover {
         background-color: #F2AB2B;
@@ -495,19 +524,22 @@ footer {
     }
 
     .search-btn:hover {
-        color: #c83742;
+        color: #FFFFFF;
+        background-color: #c83742;
     }
 
     .navbar-search input {
         margin-right: 10px;
     }
 
+    
 
     /* (Large Screen) Cards Styling Start Here */
     .cards-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
+        padding: 10px;
     }
 
     .cards-column {
@@ -520,6 +552,9 @@ footer {
         background-color: #F2AB2B;
     }
 
+    .action-button:hover {
+        background-color: #c83742
+    }
     
     .button {
         height: 40px;
@@ -585,6 +620,77 @@ footer {
         padding: 10px;
     }
 
+    /* #endregion */
+
+    /* Profile Layout (Large Screen) */
+    /* region */
+    .profile-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    .profile-form-group{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 50%;
+    }
+
+    .profile-form-group label{
+        font-size: 17px;
+        width: 150px;
+        margin-right: 20px;
+        text-align: right;
+    }
+
+    .profile-form-group input{
+        font-size: 15px;
+        flex-grow: 1;
+        border-radius: 5px;
+        color:#3C3C3C;
+        text-align: left;
+    }
+
+    .profile-form-group output{
+        font-size: 17px;
+    }
+
+    .form-button{
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-button > button{
+        margin: 5px;
+        width: 100px;
+        height: 30px;
+    }
+
+    #themeButtons{
+        display: flex;
+        width: auto;
+        height: 100px;
+        font-size: 10px;
+        text-align: center;
+        
+    }
+
+    .theme-card {
+        display: inline-block;
+        width: calc(33.33% - 20px);
+        /* Adjust the width as per your preference */
+        margin: 10px;
+        padding: 20px;
+        background-color: #f2ab2b;
+        /* Default background color */
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
     /* #endregion */
 
 }
