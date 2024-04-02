@@ -104,7 +104,7 @@ async function importDecksFromJSON(jsonData) {
     try {
         // Loop through the JSON data and add each deck to Firestore
         for (const deck of jsonData.decks) {
-            await db.collection('decks').doc(deck.id).set(deck);
+            await db.collection('decks').doc(deck.Id).set(deck);
         }
         console.log("Decks imported successfully!");
     } catch (error) {
