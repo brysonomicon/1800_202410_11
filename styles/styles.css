@@ -20,7 +20,7 @@
     /* light grey */
     --alert-color: rgb(173, 255, 47);
     /* alert highlight */
-    --font-size: 30px;
+    --font-size: 20px;
     /* constant font size set */
     --button-padding: 16px 32px;
     /* container padding */
@@ -259,11 +259,10 @@ h1 {
     text-align: left;
 }
 
-label[for=question] {
+/* label[for=question] {
     width:30%;
     margin-right: 3px;
-
-}
+} */
 
 .card-form-group input {
     width: 100%;
@@ -886,6 +885,7 @@ footer {
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
         margin-bottom: 20px;
         width: auto;
     }
@@ -928,9 +928,9 @@ footer {
         scrollbar-color: var(--main-color);
     }
     
-    textarea#question {
+    /* textarea#question {
         margin-left: 30px;
-    }
+    } */
 
     .create-button {
         margin-top: 20px;
