@@ -97,6 +97,32 @@ async function addFlashcard(deckId, question, answer, details) {
     console.log(`Flashcard added with ID: ${docRef.id}`);
 }
 
+// Function to import decks from a JSON file
+async function importDecksFromJSON(jsonData) {
+    const db = firebase.firestore();
+
+    try {
+        // Loop through the JSON data and add each deck to Firestore
+        for (const deck of jsonData.decks) {
+            await db.collection('decks').doc(deck.id).set(deck);
+        }
+        console.log("Decks imported successfully!");
+    } catch (error) {
+        console.error("Error importing decks:", error);
+    }
+}
+
+// Event listener for importing decks when a file is selected
+document.getElementById('importDecksInput').addEventListener('change', async function (e) {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = async function (event) {
+        const jsonData = JSON.parse(event.target.result);
+        await importDecksFromJSON(jsonData);
+    };
+    reader.readAsText(file);
+});
+
 //checks to make sure a user is logged in, if not send them to login.html
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {

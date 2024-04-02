@@ -33,13 +33,12 @@
 body {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    min-height: 98vh;
+    min-height: 100vh;
     font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-size: var(--font-size);
     background-color: var(--background-color);
-    padding-top: 0  ;
     margin: 0;
 }
 
@@ -63,7 +62,6 @@ body {
 
 .navbar-logo img {
     width: 75px;
-    /* flex-direction: column; */
 }
 
 .navbar-toggle {
@@ -83,6 +81,7 @@ body {
     display: none;
     width: 100%;
     list-style: none;
+    background: hsl(188, 100%, .5);
 }
 
 
@@ -193,17 +192,26 @@ h1 {
 
 /* DECK DESIGN  */
 /* #region */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
 .cards-column {
-    display: block;
+    display: flex;
+    position:wrap;
     margin-bottom: 10px;
-    padding: 10px;
+    width: 90%;
+    padding: 16px;
 }
 
 .card {
     padding: var(--font-size);
     background-color: var(--main-color);
     box-shadow: 0 9px var(--shadow-color);
-    width: 80%;
+    width: 100%;
     border-radius: 20px;
 }
 
@@ -232,7 +240,7 @@ h1 {
     flex-direction: row;
     align-items: center;
     margin-bottom: 20px;
-    width: auto;
+    width: 100%;
 }
 
 .card-form-group {
@@ -244,35 +252,46 @@ h1 {
 }
 
 .card-form-group label {
-    width: 120px;
+    width: 30%;
     font-size: var(--font-size);
     margin-bottom: 20px;
-    margin-right: 60px;
-    margin-left: 20px;
+    margin-right: 20px;
     text-align: left;
+}
+
+label[for=question] {
+    width:30%;
+    margin-right: 3px;
+
+}
+
+.card-form-group input {
+    width: 100%;
+    height: 40px;
+    margin-left: 20px;
 }
 
 .card-form-group textarea {
     align-content: first baseline;
     border-width: 8px;
-    width: 700px;
-    height: 100px;
-    /* padding: var(--button-padding); */
+    width: 100%;
+    height: 80px;
     box-sizing: border-box;
     border: var(--border-color);
     background-color: var(--text-color);
     font-size: 16px;
+    margin-left: 20px;
     resize: none;
 }
 
 .create-button {
     margin-top: 20px;
-    margin-left: 600px;
-    width: 30%;
+    margin-right: auto;
+    width: 140px;
     height: var(--button-size);
     font-size: var(--font-size);
     cursor: pointer;
-    border-radius: 25px;
+    border-radius: 35px;
     color: var(--text-color);
     background-color: var(--background-color);
     transition: background-color 0.3s ease;
@@ -280,6 +299,25 @@ h1 {
 
 .create-button:hover {
     background-color: var(--hover-color);
+}
+
+
+label.importDeck {
+    margin-right: 0;
+    width: 30%;
+    height: 40px;
+    background-color: var(--text-color);
+    color: var(--shadow-color);
+    cursor:text;
+}
+
+#importDecksButton {
+    width: 140px;
+}
+
+span.import-container {
+    float: inline-end;
+    margin-left: 40px;
 }
 
 #successMessage {
@@ -354,10 +392,11 @@ h1 {
 /* #region */
 .button-container {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     flex-direction: row;
     align-content: space-between;
     width: 100%;
+    margin-left: 3%;
 }
 
 
@@ -476,11 +515,6 @@ footer {
 
 /* PROFILE PAGE RELATEd */
 /* #region */
-form {
-    max-width: 1920px;
-    width: 100%;
-}
-
 .profile-form-group {
     display: flex;
     flex-direction: row;
@@ -648,19 +682,13 @@ form {
 
     .search-btn {
         visibility: visible;
-        font-size: var(--font-size);
-        transition: background-color 0.3s ease;
-    }
-
-    .search-btn:hover {
-        color: var(--text-color);
-        background-color: var(--hover-color);
     }
 
     .navbar-search input {
         margin-right: 20px;
         font-size: var(--font-size);
-        border-radius: 25px;
+        border-radius: 15px;
+        text-align:justify;
         margin-top: 7px;
         min-width: 200px;
         width: 100%;
@@ -843,12 +871,9 @@ form {
     .theme-card {
         display: inline-block;
         width: calc(33.33% - 20px);
-        /* Adjust the width as per your preference */
-        /* margin: 10px; */
         padding: 10px;
         height: 120px;
         background-color: var(--main-color);
-        /* Default background color */
         border-radius: 25px;
         cursor: pointer;
         transition: background-color 0.3s ease;
@@ -877,14 +902,12 @@ form {
         width: 120px;
         font-size: var(--font-size);
         margin-bottom: 20px;
-        margin-right: 50px;
         margin-left: 20px;
         text-align: left;
     }
 
     .card-form-group input {
-        align-content: first baseline;
-        width: 60%;
+        width: 70%;
         border-width: 1px;
         height: 50px;
         resize: none;
@@ -892,9 +915,10 @@ form {
     }
 
     .card-form-group textarea {
-        align-content: first baseline;
+        position: sticky;
+        align-content: center;
         border-width: 8px;
-        width: 60%;
+        width: 70%;
         height: 100px;
         box-sizing: border-box;
         border-color: var(--border-color);
@@ -903,29 +927,14 @@ form {
         resize: none;
         scrollbar-color: var(--main-color);
     }
-
-    ::-webkit-scrollbar {
-        width: 10px;
-        border-radius: 2px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: var(--text-color);
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: rgb(112, 128, 114);
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--shadow-color);
+    
+    textarea#question {
+        margin-left: 30px;
     }
 
     .create-button {
         margin-top: 20px;
-        margin-left: 0px;
+        margin-right: 20px;
         width: 140px;
         height: var(--button-height);
         font-size: var(--font-size);
@@ -939,6 +948,33 @@ form {
     .create-button:hover {
         background-color: var(--hover-color);
     }
+
+    .card-form-group > .button-container {
+        display: flex;
+        flex-direction: row;
+        margin-left: 20px;
+        gap: 10px;
+    }
+
+    label.importDeck {
+        margin-right: 0;
+        width: 25%;
+        height: 40px;
+        background-color: var(--text-color);
+        color: var(--shadow-color);
+        cursor:text;
+    }
+
+    #importDecksButton {
+        margin-bottom: 30px;
+    }
+
+    span.import-container {
+        float:right;
+        align-items: flex-end;
+        position: static;
+    }
+
 
     #successMessage {
         background-color: var(--alert-color);

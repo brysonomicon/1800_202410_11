@@ -68,7 +68,15 @@
                     <label for="chapter">Details:</label>
                     <textarea input type="text" id="details" placeholder="Enter an optional sub-topic or chapter"></textarea>
                 </div>
-                <button type="text" class="create-button">Create</button>
+                <div id="create-button-container">
+                    <button type="text" class="create-button save">Create</button>
+                    <span class="import-container">
+                        <button type="text" class="create-button" id="importDecksButton">Import</button>
+                        <input type="file" id="importDecksInput" placeholder="Choose" style="display: none;">
+                        <label for="importDecksInput" class="importDeck">Choose File</label>
+                    </span>
+      
+                </div>
             </form>
         </div>
 
