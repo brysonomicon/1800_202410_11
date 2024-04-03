@@ -38,6 +38,7 @@ function populateUserInfo() {
                             let userCountry = userDoc.data().country;
                             let userRole = userDoc.data().role;
 
+
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
                                 document.getElementById("nameInput").value = userName;
@@ -52,7 +53,11 @@ function populateUserInfo() {
                                 document.getElementById("countryInput").value = userCountry;
                             }
                             if (userRole != null) {
+                                if (userDoc.data().verifier) {
+                                    document.getElementById("roleOutput").value = 'Verifier';
+                                } else {
                                 document.getElementById("roleOutput").value = userRole;
+                                }
                             }
                         })
                 } else {

@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('customPrompt').style.display = 'flex';
 
         // The "Submit Form" and "Review My Information" buttons inside the modal
-        // should have event listeners that handle what happens next.
+        // have event listeners that handle what happens next.
     });
 });
 
@@ -104,7 +104,7 @@ async function importDecksFromJSON(jsonData) {
     try {
         // Loop through the JSON data and add each deck to Firestore
         for (const deck of jsonData.decks) {
-            await db.collection('decks').doc(deck.Id).set(deck);
+            await db.collection('decks').doc(deck.id).set(deck);
         }
         console.log("Decks imported successfully!");
     } catch (error) {
