@@ -31,7 +31,7 @@
             </div>
         </header>
         <form>
-            <fieldset class="profile-form" id="personalInfoFields" disabled>
+            <fieldset class="profile-form" id="personalInfoFields">
                 <div class="profile-form-group">
                     <label>Name:</label>
                     <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
@@ -50,15 +50,15 @@
                 </div>
                 <div class="profile-form-group">
                     <label>Role:</label>
-                    <output type="text" id="roleOutput" class="form-control" disabled>
+                    <output type="text" id="roleOutput" class="form-control">
                 </div>
                 <div class="profile-form form-button">
                     <button type="button" class="button-req" onclick="requestVerifierRole()">Request Role</button>
                 </div>
             </fieldset>
             <div class="form-button">
-                <button type="button" class="button-edit" onclick="editUserInfo()">Edit</button>
-                <button type="button" class="button-save" onclick="saveUserInfo()">Save</button>
+                <button type="button" class="button-edit">Edit</button>
+                <button type="button" class="button-save">Save</button>
             </div>
         </form>
         </div>
