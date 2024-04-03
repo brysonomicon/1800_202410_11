@@ -90,8 +90,6 @@ function saveUserInfo() {
     console.log("Profile successfully updated!");
 
   })
-  // disables editing after save.
-  document.getElementById('personalInfoFields').disabled = true;
 
 }
 
@@ -114,10 +112,4 @@ function requestVerifierRole() {
             showModal("You need to be logged in to request a role.");
         }
     });
-}
-
-
-function editUserInfo() {
-  //Enable the form fields
-  document.getElementById('personalInfoFields').disabled = false;
 }
