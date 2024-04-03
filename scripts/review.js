@@ -30,21 +30,29 @@ firebase.firestore().collection('decks').doc(subject).collection('cards').get().
         document.getElementById("answer").innerHTML = cardData.answer;
     });
 
+    document.getElementById("backButton").style.display = "none";
+    document.getElementById("exitButton").style.display = "none";
+
     document.getElementById("nextButton").addEventListener("click", function () {
         cardIndex++;
         if (cardIndex < flashcardsList.length) {
+            //Flip the card if user is going from answer to next question
             if (document.getElementById("answer").innerHTML.trim() !== "") {
                 document.querySelector(".flashcard").click();
             }
             displayFlashcard(cardIndex);
+            document.getElementById("backButton").style.display = "inline";
+            document.getElementById("exitButton").style.display = "none";
         } else {
+            //Flip to "End message" when user is going from answer to the end.
             if (document.getElementById("answer").innerHTML.trim() !== ""){
                 document.querySelector(".flashcard").click();
             }
             document.getElementById("question").innerHTML = "";
-            document.getElementById("answer").innerHTML = "End";
-            document.getElementById("end").innerHTML = "You've finished your card set.";
+            document.getElementById("answer").innerHTML = "";
+            document.getElementById("end").innerHTML = "Congratulations! You've finished your card set.";
             document.getElementById("nextButton").style.display = "none";
+            document.getElementById("exitButton").style.display = "inline";
         }
     });
 
@@ -57,6 +65,7 @@ firebase.firestore().collection('decks').doc(subject).collection('cards').get().
             displayFlashcard(cardIndex);
             document.getElementById("end").innerHTML = "";
             document.getElementById("nextButton").style.display = "inline";
+            document.getElementById("exitButton").style.display = "none";
         }
     })
 });

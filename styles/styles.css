@@ -20,7 +20,7 @@
     /* light grey */
     --alert-color: rgb(173, 255, 47);
     /* alert highlight */
-    --font-size: 20px;
+    --font-size: 15px;
     /* constant font size set */
     --button-padding: 16px 32px;
     /* container padding */
@@ -445,8 +445,8 @@ footer {
 }
 
 .flashcard {
-    width: 550px;
-    height: 400px;
+    width: 100%;
+    height: 350px;
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.7s ease-in;
@@ -514,6 +514,13 @@ footer {
 
 /* PROFILE PAGE RELATEd */
 /* #region */
+.profile-form {
+    padding: 20px;
+    border-radius: 25px;
+    align-items: center;
+    width: auto;
+}
+
 .profile-form-group {
     display: flex;
     flex-direction: row;
@@ -523,7 +530,7 @@ footer {
 }
 
 .profile-form-group label {
-    width: 80px;
+    width: 50%;
     font-size: var(--font-size);
     margin-right: 20px;
     margin-left: 10px;
@@ -533,17 +540,11 @@ footer {
 .profile-form-group input {
     font-size: var(--font-size);
     color: var(--background-color);
-    max-width: 400px;
+    max-width: 350px;
     width: 100%;
     height: var(--button-size);
     margin-right: 30px;
     margin-left: 30px
-}
-
-.profile-form {
-    padding: 25px;
-    border-radius: 25px;
-    align-items: center;
 }
 
 .form-button>button {
@@ -564,33 +565,31 @@ footer {
 }
 
 #themeButtons {
-    display: flex;
-    text-align: center;
     width: 100%;
-    height: 200px;
+    height: auto;
+    display: flex;
     flex-direction: row;
-    font-size: var(--font-size);
+    font-size: 10px;
+    text-align: center;
 }
 
 .theme-card {
     display: inline-block;
-    height: 120px;
     width: calc(33.33% - 20px);
     /* Adjust the width as per your preference */
     margin: 10px;
     padding: 20px;
-    background-color: var(--main-color);
+    background-color: #f2ab2b;
     /* Default background color */
-    border-radius: 25px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .theme-card:hover {
-    background-color: var(--hover-color);
+    background-color: #c83742;
     /* Background color on hover */
 }
-
 /* #endregion */
 
 /* MEDIA QUERY FOR LARGER SCREENS */
