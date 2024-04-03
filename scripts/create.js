@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('customPrompt').style.display = 'flex';
 
         // The "Submit Form" and "Review My Information" buttons inside the modal
-        // should have event listeners that handle what happens next.
+        // have event listeners that handle what happens next.
     });
 });
 

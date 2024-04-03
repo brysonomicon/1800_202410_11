@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flash Cardin'</title>
-    <link rel="stylesheet" href="./styles/styles.css" type="text/css">
-    <link rel="icon" type="image/ico" href="./images/favicon.ico">
+    <link rel="stylesheet" href="./styles/styles.css" type="text/css" />
+    <link rel="icon" type="image/ico" href="./images/favicon.ico" />
 
     <!-- FIREBASEE SCRIPTS AND LINKS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -14,31 +13,38 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
+    />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- NavBar -->
-    <nav id="navbarGoesHere"></nav>
+    <!-- <nav id="navbarGoesHere"></nav> -->
     <!-- NavBar -->
 
     <main>
-        <div class="welcome">
-            <h1>Welcome to FlashCardin'!</h1>
-            <button class="login-button" type="button" onclick="window.location.href='login.html';">Login</button>
-        </div>
-        <!-- Cards and stuff can go in this container-->
+      <div class="welcome">
+        <h1>Welcome to FlashCardin'!</h1>
+        <button
+          class="login-button"
+          type="button"
+          onclick="window.location.href='login.html';"
+        >
+          Login
+        </button>
+      </div>
+      <!-- Cards and stuff can go in this container-->
+      <!-- Footer -->
+      <nav id="footerGoesHere"></nav>
+      <!-- Footer -->
     </main>
-
-    <!-- Footer -->
-    <nav id="footerGoesHere"></nav>
-    <!-- Footer -->
-
 
     <!-- SCRIPTS -->
     <script src="./scripts/firebaseAPI_flashcardin.js"></script>
     <script src="./scripts/skeleton.js"></script>
-</body>
-
+  </body>
 </html>
