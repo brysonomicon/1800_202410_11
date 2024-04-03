@@ -551,6 +551,12 @@ footer {
     margin-left: 30px
 }
 
+.profile-form {
+    padding: 25px;
+    border-radius: 25px;
+    align-items: center;
+}
+
 .form-button>button {
     font-size: var(--font-size);
     margin: 1rem;
