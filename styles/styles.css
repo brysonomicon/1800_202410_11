@@ -21,7 +21,7 @@
     /* light grey */
     --alert-color: rgb(173, 255, 47);
     /* alert highlight */
-    --font-size: 15px;
+    --font-size: 20px;
     /* constant font size set */
     --button-padding: 8px 16px;
     /* container padding */
@@ -129,7 +129,7 @@ body {
 .navbar-search {
     padding: 0 0 10px 10px;
     margin-right: 40%;
-    margin-left: 30%;
+    margin-left: 28%;
     width: 100%;
     height: 60px;
 }
@@ -143,6 +143,7 @@ body {
     font-size: var(--font-size);
     text-align: start;
 }
+
 
 /* #endregion */
 
@@ -224,6 +225,7 @@ h1 {
     text-align: center;
     border-radius: 20px;
     transition: background-color 0.3s ease;
+
 }
 
 .button:hover {
@@ -380,6 +382,9 @@ span.import-container {
     cursor: pointer;
 }
 
+
+
+
 /* #endregion */
 /* da foot */
 
@@ -393,6 +398,9 @@ span.import-container {
     width: auto;
     margin-left: 2%;
 }
+
+.no-save-found {}
+
 
 .action-button {
     display: inline-block;
@@ -411,6 +419,7 @@ span.import-container {
     transition: background-color 0.3s ease;
 }
 
+
 .action-button:active {
     background-color: var(--hover-color);
     box-shadow: 0 5px var(--shadow-color);
@@ -421,8 +430,6 @@ span.import-container {
 }
 
 /* #endregion */
-
-/* Footer */
 footer {
     display: flex;
     justify-content: space-evenly;
@@ -616,6 +623,7 @@ footer {
         display: none;
     }
 
+
     .navbar-logo img {
         width: 75px;
         padding: 10px;
@@ -649,6 +657,7 @@ footer {
     .navbar-menu li:last-child a:hover {
         color: var(--hover-color);
         transition: color 0.3s ease;
+
     }
 
     .navbar-links {
@@ -680,7 +689,6 @@ footer {
         font-size: var(--font-size);
         border-radius: 15px;
         text-align:justify;
-        margin-top: 7px;
         min-width: 200px;
         width: 100%;
         outline-color: var(--hover-color);
@@ -693,6 +701,7 @@ footer {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        width: 00px;
         padding: 16px;
         width: auto;
     }
@@ -815,8 +824,6 @@ footer {
         width: 80px;
         height: var(--button-height);
         font-size: var(--font-size);
-        /* margin-left: 20px;
-        margin-top: 10px; */
         text-align: center;
         margin-bottom: 10px;
     }
@@ -861,7 +868,7 @@ footer {
         height: var(--button-height);
         font-size: 10px;
         height: 100px;
-        padding: 10 10;
+        padding: 10px 10px;
         text-align: center;
         margin-bottom: 80px;
     }

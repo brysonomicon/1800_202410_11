@@ -37,7 +37,7 @@
     /* light grey */
     --alert-color: rgb(173, 255, 47);
     /* alert highlight */
-    --font-size: 15px;
+    --font-size: 20px;
     /* constant font size set */
     --button-padding: 8px 16px;
     /* container padding */
@@ -112,7 +112,7 @@ body {
     border-radius: 25px;
     background-color: rgb(60, 60, 60);
     font-size: var(--font-size);
-    padding: 10px 0 10px 0;
+    /* padding: 10px 0 10px 0; */
     margin-right: 40%;
     margin-left: 30%;
     color: rgb(255, 255, 255);
@@ -678,10 +678,10 @@ footer {
         font-size: var(--font-size);
         border-radius: 15px;
         text-align:justify;
-        margin-top: 7px;
         min-width: 200px;
         width: 100%;
         outline-color: var(--hover-color);
+
     }
     
     /* Cards Styling */
