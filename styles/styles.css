@@ -390,7 +390,7 @@ span.import-container {
     justify-content: center;
     flex-direction: row;
     align-content: space-between;
-    width: 100%;
+    width: auto;
     margin-left: 2%;
 }
 
@@ -687,12 +687,14 @@ footer {
 
     }
 
-    /* (Large Screen) Cards Styling Start Here */
+    /* Cards Styling Start Here */
+    /* #region */
     .cards-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         padding: 16px;
+        width: auto;
     }
 
     .saved-cards {
@@ -732,7 +734,7 @@ footer {
         cursor: pointer;
     }
 
-    /* Cards Styling End Here */
+    /* #endregion */
 
     /* #region FlashCardContainer */
     .flashcard-container {
