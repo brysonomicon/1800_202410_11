@@ -144,7 +144,6 @@ body {
     text-align: start;
 }
 
-
 /* #endregion */
 
 /* MAIN CONTENT */
@@ -225,7 +224,6 @@ h1 {
     text-align: center;
     border-radius: 20px;
     transition: background-color 0.3s ease;
-
 }
 
 .button:hover {
@@ -382,9 +380,6 @@ span.import-container {
     cursor: pointer;
 }
 
-
-
-
 /* #endregion */
 /* da foot */
 
@@ -398,9 +393,6 @@ span.import-container {
     width: 100%;
     margin-left: 2%;
 }
-
-.no-save-found {}
-
 
 .action-button {
     display: inline-block;
@@ -419,7 +411,6 @@ span.import-container {
     transition: background-color 0.3s ease;
 }
 
-
 .action-button:active {
     background-color: var(--hover-color);
     box-shadow: 0 5px var(--shadow-color);
@@ -430,6 +421,8 @@ span.import-container {
 }
 
 /* #endregion */
+
+/* Footer */
 footer {
     display: flex;
     justify-content: space-evenly;
@@ -623,7 +616,6 @@ footer {
         display: none;
     }
 
-
     .navbar-logo img {
         width: 75px;
         padding: 10px;
@@ -657,7 +649,6 @@ footer {
     .navbar-menu li:last-child a:hover {
         color: var(--hover-color);
         transition: color 0.3s ease;
-
     }
 
     .navbar-links {
