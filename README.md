@@ -1,4 +1,4 @@
-# Project Title
+# FlashCardin'
 
 ## 1. Project Description
 Our team BBY 11 is developing a flash card/study aid application called Flash Cardin’ to help students and instructors to collate valuable study information by scanning documents and having certified sponsors unlike competitors.
@@ -7,7 +7,7 @@ Flash card project that allows users to use flash cards as a study tool. They ca
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
-* I am Phyo Thu Kha. I am writing something.
+* I am Phyo Thu Kha, contributor to the Brysonomicon. wee
 * I am Richard, contributor to the Brysonomicon. woo
 * I'm Bryson, the author of the Brysonomicon.
 	
@@ -44,17 +44,48 @@ Content of the project folder:
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
+├── login.html               # login HTML file, this is where users login
+├── main.html                # main HTML file, this acts like a main page, shows user's saved cards
+├── browse.html              # browse HTML file, this is where users will browse for each cards
+├── create.html              # create HTML file, this is where users can create flash cards
+├── review.html              # review HTML file, this is where reviews of cards will happen
+├── profile.html             # profile HTML file, this is where users can edit their information, and change themes
+├── template.html            # template HTLM file, this is use as a template for creating other html file
 └── README.md
 
 It has the following subfolders and files:
-├── .git                     # Folder for git repo
-├── images                   # Folder for images
-    /blah.jpg                # Acknowledge source
-├── scripts                  # Folder for scripts
-    /blah.js                 # 
-├── styles                   # Folder for styles
-    /blah.css                # 
-
+├── Firebase hosting files:
+        ├──.firebase
+            /hosting..cache  
+        ├── 404.html                 
+        ├── .firebaserc              
+        ├── firebase.json            
+        ├── firestore.indexes.json  
+        └── firestore.rules                
+├── images                       # Folder for images
+        /fcLogo-removebg         # Our logo with background removed
+        -preview.png     
+        /fcLogo.png              # Our logo 
+        /favicon.ico             # Our favicon
+├── notcurrentlyused             # Folder for HTML and JS files that were use for testing and now currently not used        
+├── scripts                      # Folder for scripts
+        /firebaseAPI_            # FirebaseAPI, shared across all pages
+        flashcardin.js
+        /auth.js                 # JS for login.html
+        /browse.js               # JS for broswe.html 
+        /create.js               # JS for create.html
+        /main.js                 # JS for main.html
+        /profile.js              # JS for profile.html
+        /review.js               # JS for review.html
+        /script.js               # JS for loading navbar connected to skeleton.js
+        /skeleton.js             # JS for navbar and footer, shared across all pages
+├── styles                       # Folder for styles
+        /light.css               # Style for light theme 
+        /neno.css                # Style for blue theme
+        /styles.css              # Style for default theme
+└── text                         # Folder for navbar and footer
+        /footer.html             # footer HTML file, this is our footer, shared across pages
+        /navbar.html             # navbar HTML file, this is our navbar, shared across pages
 
 
 ```
