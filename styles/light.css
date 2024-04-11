@@ -115,7 +115,7 @@ body {
     /* padding: 10px 0 10px 0; */
     margin-right: 40%;
     margin-left: 30%;
-    color: rgb(255, 255, 255);
+    color: black;
     height: var(--button-height);
     transition: background-color 0.3s ease;
 }
@@ -439,7 +439,8 @@ footer {
     justify-content: space-evenly;
     text-align: center;
     grid-row: 3;
-    color: #f8f9f2;
+    color: var(--text-color);
+    margin-top: 20%;
 }
 
 /* REVIEW FLASHCARD STYLING */
@@ -547,6 +548,10 @@ footer {
     height: var(--button-size);
     margin-right: 30px;
     margin-left: 30px
+}
+
+.profile-form-group output {
+    margin-left: 0px;
 }
 
 .form-button>button {
@@ -710,7 +715,7 @@ footer {
 
     .card {
         margin: 4%;
-        background-color: #F2AB2B;
+        background-color: var(--main-color);
     }
 
     .action-button {
@@ -791,10 +796,13 @@ footer {
 
     /* Profle Design (Large Screen) */
     /* #region */
+
+
     .profile-form{
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: auto;
         padding: 20px;
     }
     
@@ -810,11 +818,11 @@ footer {
         font-size: 17px;
         width: 150px;
         margin-right: 20px;
-        text-align: right;
+        text-align: left;
     }
     
     .profile-form-group input {
-        font-size: 15px;
+        font-size: 17px;
         flex-grow: 1;
         border-radius: 5px;
         color: black;
@@ -823,6 +831,9 @@ footer {
     
     .profile-form-group output{
         font-size: 17px;
+        flex-grow: 1;
+        align-self:auto;
+        margin-left: 30px;
     }
     
     .form-button{
@@ -841,6 +852,8 @@ footer {
         border-radius: 30px;
         height: auto;
         margin-block-start: auto;
+        cursor:pointer;
+    
     }
     
     #themeButtons{

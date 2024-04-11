@@ -809,7 +809,7 @@ footer {
         align-items: center;
         padding: 20px;
     }
-
+    
     .profile-form-group {
         display: flex;
         flex-direction: row;
@@ -817,67 +817,59 @@ footer {
         margin-bottom: 20px;
         width: 50%;
     }
-
-    .profile-form-group label {
+    
+    .profile-form-group label{
         font-size: 17px;
-        align-items: center;
-        width: 80px;
-        height: var(--button-height);
-        font-size: var(--font-size);
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .profile-form-group input {
-        font-size: var(--font-size);
-        color: var(--background-color);
-        /* width: 100%; */
-        height: var(--button-height);
+        width: 150px;
+        margin-right: 20px;
         text-align: left;
-        margin-left:40px;
-        margin-top: 10px;
+    }
+    
+    .profile-form-group input {
+        font-size: 17px;
+        flex-grow: 1;
         border-radius: 5px;
+        color: black;
+        text-align: left;
     }
-
-    .profile-form-group output {
-        font-size: 30px;
-        margin-inline-start: 45px;
+    
+    .profile-form-group output{
+        font-size: 17px;
+        align-self:auto;
+        margin-left: 30px;
     }
-
-    .form-button {
+    
+    .form-button{
         display: flex;
         justify-content: center;
     }
-
-    .form-button > button {
+    
+    .form-button > button{
         margin: 5px;
         width: 100px;
         height: auto;
     }
-
+  
     .form-button>.button-req {
         width: auto;
         border-radius: 30px;
         height: auto;
         margin-block-start: auto;
+        cursor:pointer;
     }
-
-    #themeButtons {
+    
+    #themeButtons{
         display: flex;
         width: auto;
-        height: var(--button-height);
-        font-size: 10px;
         height: 100px;
-        padding: 10px 10px;
+        font-size: 10px;
         text-align: center;
-        margin-bottom: 80px;
     }
-
     .theme-card {
         display: inline-block;
         width: calc(33.33% - 20px);
         margin: 10px;
-        padding: 10px;
+        padding: 20px;
         background-color: var(--main-color);
         border-radius: 10px;
         cursor: pointer;
@@ -930,7 +922,7 @@ footer {
         box-sizing: border-box;
         border-color: var(--border-color);
         background-color: var(--text-color);
-        font-size: var(--font-size);
+        font-size: 17px;
         resize: none;
         scrollbar-color: var(--main-color);
     }
