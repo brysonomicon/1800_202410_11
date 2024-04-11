@@ -540,6 +540,7 @@ footer {
     font-size: var(--font-size);
     color: var(black);
     background-color: var(--border-color);
+    border-radius: 5px;
     max-width: 350px;
     width: 100%;
     height: var(--button-size);
