@@ -441,7 +441,6 @@ footer {
     text-align: center;
     grid-row: 3;
     color: var(--text-color);
-    margin-top: 13%;
 }
 
 /* REVIEW FLASHCARD STYLING */
@@ -820,11 +819,11 @@ footer {
         font-size: 17px;
         width: 150px;
         margin-right: 20px;
-        text-align: left;
+        text-align: right;
     }
     
     .profile-form-group input {
-        font-size: 17px;
+        font-size: 15px;
         flex-grow: 1;
         border-radius: 5px;
         color: black;
