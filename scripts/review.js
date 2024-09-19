@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Delay moving to the previous card until the flip back animation completes
             setTimeout(() => {
                 moveToNextOrPreviousCard(-1); // Move to the previous card
-            }, 500); // Adjust this delay based on the duration of your flip animation
+            }, 500); 
         } else {
             moveToNextOrPreviousCard(-1); // Move to the previous card
         }
