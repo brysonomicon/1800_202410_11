@@ -75,6 +75,7 @@ body {
     font-size: var(--font-size);
     z-index: 1001;
     /* ENSURE NAVBAR IS ABOVE ALL ELSE . */
+    outline: 1px solid var(--background-color);
 }
 
 .navbar-logo img {
@@ -645,7 +646,7 @@ footer {
     }
 
     .navbar-menu li:last-child a {
-        color: var(--);
+        color: white;
         font-size: var(--font-size);
         margin-right: 10%;
     }

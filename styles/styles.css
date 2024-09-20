@@ -58,6 +58,7 @@ body {
     padding: 10px;
     font-size: var(--font-size);
     z-index: 1001;
+    outline: 1px solid var(--background-color);
     /* ENSURE NAVBAR IS ABOVE ALL ELSE . */
 }
 
@@ -85,26 +86,21 @@ body {
     background: hsl(188, 100%, .5);
 }
 
-
 .navbar-links,
-.navbar-search button {
+.navbar-search-button {
     display: flex;
     justify-content: center;
     text-align: center;
     margin: 7px 0;
     text-decoration: none;
-    color: var(--text-color);
     cursor: pointer;
-}
-
-.navbar-links {
     border-radius: 25px;
-    background-color: var(--background-color);
+    background-color: rgb(60, 60, 60);
     font-size: var(--font-size);
-    padding: 10px 0 10px 0;
+    /* padding: 10px 0 10px 0; */
     margin-right: 40%;
     margin-left: 30%;
-    color: var(--text-color);
+    color: rgb(255, 255, 255);
     height: var(--button-height);
     transition: background-color 0.3s ease;
 }
@@ -118,8 +114,9 @@ body {
     font-size: var(--font-size);
     padding: var(--button-padding);
     border-radius: 25px;
-    background-color: var(--background-color);
+    background-color: rgb(60, 60, 60);
     transition: background-color 0.3s ease;
+    color: var(--background-color);
 }
 
 .search-btn:hover {
@@ -129,7 +126,7 @@ body {
 .navbar-search {
     padding: 0 0 10px 10px;
     margin-right: 40%;
-    margin-left: 28%;
+    margin-left: 30%;
     width: 100%;
     height: 60px;
 }
@@ -143,7 +140,6 @@ body {
     font-size: var(--font-size);
     text-align: start;
 }
-
 
 /* #endregion */
 
@@ -188,7 +184,48 @@ h1 {
 .login-button:hover {
     background-color: var(--hover-color);
 }
+/* #endregion */
 
+/* MAIN.HTML CONTENT STYLE */
+/* #region */
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-content: space-between;
+    width: auto;
+    margin-left: 2%;
+}
+
+.action-button {
+    display: inline-block;
+    grid-row: 2;
+    padding: 10px 20px 10px 20px;
+    margin: 20px;
+    font-size: var(--font-size);
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: var(--text-color);
+    background-color: var(--main-color);
+    border-radius: 25px;
+    box-shadow: 0 9px var(--shadow-color);
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: var(--hover-color);
+}
+
+.action-button:active {
+    background-color: var(--hover-color);
+    box-shadow: 0 5px var(--shadow-color);
+}
+
+.no-save-found {
+    text-align: center;
+}
 /* #endregion */
 
 /* DECK DESIGN  */
@@ -217,8 +254,8 @@ h1 {
 }
 
 .button {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: rgb(60, 60, 60);
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     cursor: pointer;
     text-decoration: none;
@@ -234,7 +271,7 @@ h1 {
 
 /* #endregion */
 
-/* Create a Card Form Style */
+/* CREATE CREATE STYLING*/
 /* #region */
 .create-container {
     display: flex;
@@ -260,11 +297,6 @@ h1 {
     text-align: left;
 }
 
-/* label[for=question] {
-    width:30%;
-    margin-right: 3px;
-} */
-
 .card-form-group input {
     width: 100%;
     height: 40px;
@@ -278,10 +310,11 @@ h1 {
     height: 80px;
     box-sizing: border-box;
     border: var(--border-color);
-    background-color: var(--text-color);
     font-size: 16px;
     margin-left: 20px;
+    color: var(--text-color);
     resize: none;
+    outline: 1px solid var(--border-color);
 }
 
 .create-button {
@@ -293,7 +326,7 @@ h1 {
     cursor: pointer;
     border-radius: 25px;
     color: var(--text-color);
-    background-color: var(--background-color);
+    background-color: var(--main-color);
     transition: background-color 0.3s ease;
 }
 
@@ -311,9 +344,6 @@ label.importDeck {
     cursor:text;
 }
 
-#importDecksButton {
-    width: 140px;
-}
 
 span.import-container {
     float: inline-end;
@@ -325,9 +355,10 @@ span.import-container {
     color: var(--text-color);
     text-align: center;
 }
-
+/* #endregion */
 
 /* Custom modal for prompt to confirm submission */
+/* #region */
 .custom-prompt-overlay {
     position: fixed;
     left: 0;
@@ -338,6 +369,7 @@ span.import-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1001;
 }
 
 .custom-prompt-content {
@@ -351,8 +383,10 @@ span.import-container {
     float: right;
     cursor: pointer;
 }
+/* #endregion */
 
 /* Custom modal for save/unsave function */
+/* #region */
 .modal {
     position: fixed;
     left: 0;
@@ -381,55 +415,9 @@ span.import-container {
     float: right;
     cursor: pointer;
 }
-
-
-
-
 /* #endregion */
-/* da foot */
 
-/* MAIN.HTML CONTENT STYLE */
-/* #region */
-.button-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-content: space-between;
-    width: auto;
-    margin-left: 2%;
-}
-
-.no-save-found {}
-
-
-.action-button {
-    display: inline-block;
-    grid-row: 2;
-    padding: 10px 20px 10px 20px;
-    margin: 20px;
-    font-size: var(--font-size);
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: var(--text-color);
-    background-color: var(--main-color);
-    border-radius: 25px;
-    box-shadow: 0 9px var(--shadow-color);
-    transition: background-color 0.3s ease;
-}
-
-
-.action-button:active {
-    background-color: var(--hover-color);
-    box-shadow: 0 5px var(--shadow-color);
-}
-
-.no-save-found {
-    text-align: center;
-}
-
-/* #endregion */
+/* Footer */
 footer {
     display: flex;
     justify-content: space-evenly;
@@ -439,7 +427,8 @@ footer {
     color: var(--text-color);
 }
 
-/* #region REVIEW FLASHCARD*/
+/* REVIEW FLASHCARD STYLING */
+/* #region */
 .flashcard-container {
     perspective: 1000px;
     display: flex;
@@ -470,7 +459,7 @@ footer {
     position: absolute;
     backface-visibility: hidden;
     border-radius: 20px;
-    cursor: pointer;
+    cursor:pointer;
 }
 
 .frontofcard {
@@ -500,23 +489,17 @@ footer {
     justify-content: space-evenly;
 }
 
-.buttons > button {
+.buttons>button {
     height: 40px;
     width: 100px;
-    color: var(--text-color);
-    background-color: var(--background-color);
+    background-color: var(--main-color);
     border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.buttons>button:hover {
-    background-color: var(--hover-color);
 }
 
 /* #endregion */
 
-/* SETTING PAGE STYLE*/
+/* SETTING PAGE STYLE */
 /* #region */
 .profile-form {
     padding: 20px;
@@ -543,7 +526,7 @@ footer {
 
 .profile-form-group input {
     font-size: var(--font-size);
-    color: var(--background-color);
+    color: black;
     max-width: 350px;
     width: 100%;
     height: var(--button-size);
@@ -558,8 +541,8 @@ footer {
     width: 128px;
     height: var(--button-size);
     border-radius: 25px;
-    color: var(--text-color);
-    background-color: var(--background-color);
+    color:  rgb(255, 255, 255);
+    background-color: rgb(60, 60, 60);
 }
 
 .button-edit:hover,
@@ -583,26 +566,20 @@ footer {
     width: calc(33.33% - 20px);
     margin: 10px;
     padding: 20px;
-    background-color: #f2ab2b;
+    background-color: var(--main-color);
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .theme-card:hover {
-    background-color: #c83742;
-    /* Background color on hover */
+    background-color: var(--hover-color);
 }
+
 /* #endregion */
 
 /* MEDIA QUERY FOR LARGER SCREENS */
 @media (min-width: 701px) {
-
-    #firebaseui-auth-container {
-        margin-top: 160px;
-        top: 0;
-    }
-
     .navbar {
         display: flex;
         overflow: hidden;
@@ -623,7 +600,6 @@ footer {
     .navbar-toggle {
         display: none;
     }
-
 
     .navbar-logo img {
         width: 75px;
@@ -650,7 +626,7 @@ footer {
     }
 
     .navbar-menu li:last-child a {
-        color: var(--);
+        color: var(--background-color);
         font-size: var(--font-size);
         margin-right: 10%;
     }
@@ -658,7 +634,6 @@ footer {
     .navbar-menu li:last-child a:hover {
         color: var(--hover-color);
         transition: color 0.3s ease;
-
     }
 
     .navbar-links {
@@ -695,14 +670,13 @@ footer {
         outline-color: var(--hover-color);
 
     }
-
-    /* Cards Styling Start Here */
+    
+    /* Cards Styling */
     /* #region */
     .cards-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        width: 00px;
         padding: 16px;
         width: auto;
     }
@@ -722,7 +696,7 @@ footer {
     }
 
     .card {
-        margin: 10px;
+        margin: 4%;
         background-color: var(--main-color);
     }
 
@@ -737,16 +711,17 @@ footer {
     }
 
     .button {
-        height: 40px;
-        width: 100px;
-        background-color: var(--background-color);
-        border-radius: 20px;
+        background-color: rgb(60, 60, 60);
+        color:  var(--text-color);
+        padding: 10px 20px;
         cursor: pointer;
+        text-decoration: none;
+        text-align: center;
     }
-
     /* #endregion */
 
-    /* #region FlashCardContainer */
+    /* FlashCardContainer */
+    /* #region */
     .flashcard-container {
         perspective: 1000px;
         display: flex;
@@ -799,10 +774,9 @@ footer {
         margin: 0;
         padding: 10px;
     }
-
     /* #endregion */
 
-    /* Profile Layout (Large Screen) */
+    /* Profle Design (Large Screen) */
     /* #region */
     .profile-form{
         display: flex;
@@ -810,6 +784,7 @@ footer {
         align-items: center;
         padding: 20px;
     }
+    
     
     .profile-form-group {
         display: flex;
@@ -820,16 +795,21 @@ footer {
     }
     
     .profile-form-group label{
+    
+    .profile-form-group label{
         font-size: 17px;
         width: 150px;
         margin-right: 20px;
         text-align: left;
     }
     
+    
     .profile-form-group input {
         font-size: 17px;
         flex-grow: 1;
         border-radius: 5px;
+        color: black;
+        text-align: left;
         color: black;
         text-align: left;
     }
@@ -841,9 +821,13 @@ footer {
     }
     
     .form-button{
+    
+    .form-button{
         display: flex;
         justify-content: center;
     }
+    
+    .form-button > button{
     
     .form-button > button{
         margin: 5px;
@@ -860,9 +844,12 @@ footer {
     }
     
     #themeButtons{
+    
+    #themeButtons{
         display: flex;
         width: auto;
         height: 100px;
+        font-size: 10px;
         font-size: 10px;
         text-align: center;
     }
@@ -871,14 +858,14 @@ footer {
         width: calc(33.33% - 20px);
         margin: 10px;
         padding: 20px;
+        padding: 20px;
         background-color: var(--main-color);
         border-radius: 10px;
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
-
     /* #endregion */
-    
+
     /* CREATE CARD FORM LARGE QUERY */
     /* #region */
     .create-container {
@@ -927,10 +914,6 @@ footer {
         resize: none;
         scrollbar-color: var(--main-color);
     }
-    
-    /* textarea#question {
-        margin-left: 30px;
-    } */
 
     .create-button {
         margin-top: 20px;
@@ -941,7 +924,7 @@ footer {
         cursor: pointer;
         border-radius: 25px;
         color: var(--text-color);
-        background-color: var(--background-color);
+        background-color:  var(--main-color);
         transition: background-color 0.3s ease;
     }
 
@@ -960,7 +943,7 @@ footer {
         margin-right: 0;
         width: 25%;
         height: 40px;
-        background-color: var(--text-color);
+        background-color: var(--background-color);
         color: var(--shadow-color);
         cursor:text;
     }
