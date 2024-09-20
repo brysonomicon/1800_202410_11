@@ -147,7 +147,7 @@ main {
 }
 
 h1 {
-    padding: 20px;
+    padding-left: 15px;
 }
 
 #firebaseui-auth-container {
@@ -520,7 +520,6 @@ footer {
     font-size: var(--font-size);
     color: var(black);
     background-color: var(--border-color);
-    border-radius: 5px;
     max-width: 350px;
     width: 100%;
     height: var(--button-size);
@@ -587,7 +586,7 @@ footer {
         margin: 0;
         z-index: 1001;
         height: 100px;
-        /* ENSURE NAVBAR IS ABOVE ALL ELSE . */
+        outline: 1px solid var(--background-color);
     }
 
     .navbar-toggle {
@@ -596,7 +595,7 @@ footer {
 
     .navbar-logo img {
         width: 75px;
-        padding: 10px;
+        padding-top:7px;
     }
 
     .navbar-menu {
@@ -772,77 +771,85 @@ footer {
     /* Profle Design (Large Screen) */
     /* #region */
     .profile-form{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-  }
-  
-  .profile-form-group {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin-bottom: 20px;
-      width: 50%;
-  }
-  
-  .profile-form-group label{
-      font-size: 17px;
-      width: 150px;
-      margin-right: 20px;
-      text-align: left;
-  }
-  
-  .profile-form-group input {
-      font-size: 17px;
-      flex-grow: 1;
-      border-radius: 5px;
-      color: black;
-      text-align: left;
-  }
-  
-  .profile-form-group output{
-      font-size: 17px;
-      align-self:auto;
-      margin-left: 30px;
-  }
-  
-  .form-button{
-      display: flex;
-      justify-content: center;
-  }
-  
-  .form-button > button{
-      margin: 5px;
-      width: 100px;
-      height: auto;
-  }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
 
-  .form-button>.button-req {
-      width: auto;
-      border-radius: 30px;
-      height: auto;
-      margin-block-start: auto;
-      cursor:pointer;
-  }
-  
-  #themeButtons{
-      display: flex;
-      width: auto;
-      height: 100px;
-      font-size: 10px;
-      text-align: center;
-  }
-  .theme-card {
-      display: inline-block;
-      width: calc(33.33% - 20px);
-      margin: 10px;
-      padding: 20px;
-      background-color: var(--main-color);
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-  }
+    .profile-form-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 50%;
+    }
+
+    .profile-form-group label {
+        font-size: 17px;
+        align-items: center;
+        width: 80px;
+        height: var(--button-height);
+        font-size: var(--font-size);
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .profile-form-group input {
+        font-size: var(--font-size);
+        color:black;
+        /* width: 100%; */
+        height: var(--button-height);
+        text-align: left;
+        margin-left:40px;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    .profile-form-group output {
+        font-size: 30px;
+        margin-inline-start: 45px;
+    }
+
+    .form-button {
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-button > button {
+        margin: 5px;
+        width: 100px;
+        height: auto;
+    }
+
+    .form-button>.button-req {
+        width: auto;
+        border-radius: 30px;
+        height: auto;
+        margin-block-start: auto;
+    }
+
+    #themeButtons {
+        display: flex;
+        width: auto;
+        height: var(--button-height);
+        font-size: 10px;
+        height: 100px;
+        padding: 10px 10px;
+        text-align: center;
+        margin-bottom: 80px;
+    }
+
+    .theme-card {
+        display: inline-block;
+        width: calc(33.33% - 20px);
+        margin: 10px;
+        padding: 10px;
+        background-color: var(--main-color);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
     /* #endregion */
 

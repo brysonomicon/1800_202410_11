@@ -1,24 +1,3 @@
-/* #708090 (slate grey) #FFDAB9(peach) #F2F2F2 (light grey) #333333(dark grey) */
-
-
-/* Styles for light mode */
-/* body {
-  background-color: #ffdab9;
-  color: #FFFFFF; 
-}
-
-.theme-card {
-  background-color: #ffdab9;
-}
-
-.theme-card:hover {
-  background-color: #e0e0e0;
-} */
-
-
-/* THIS IS DEFAULT STYLESHEET */
-/* MOBILE FIRST MEDIA QUERY */
-
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
@@ -116,7 +95,7 @@ body {
     /* padding: 10px 0 10px 0; */
     margin-right: 40%;
     margin-left: 30%;
-    color: black;
+    color: rgb(255, 255, 255);
     height: var(--button-height);
     transition: background-color 0.3s ease;
 }
@@ -169,7 +148,7 @@ main {
 }
 
 h1 {
-    padding: 20px;
+    padding-left: 15px;
 }
 
 #firebaseui-auth-container {
@@ -441,7 +420,6 @@ footer {
     text-align: center;
     grid-row: 3;
     color: var(--text-color);
-    margin-top: 20%;
 }
 
 /* REVIEW FLASHCARD STYLING */
@@ -547,13 +525,8 @@ footer {
     max-width: 350px;
     width: 100%;
     height: var(--button-size);
-    border-radius: 5px;
     margin-right: 30px;
     margin-left: 30px
-}
-
-.profile-form-group output {
-    margin-left: 0px;
 }
 
 .form-button>button {
@@ -623,7 +596,7 @@ footer {
 
     .navbar-logo img {
         width: 75px;
-        padding: 10px;
+        padding-top: 7px;
     }
 
     .navbar-menu {
@@ -717,7 +690,7 @@ footer {
 
     .card {
         margin: 4%;
-        background-color: var(--main-color);
+        background-color: #F2AB2B;
     }
 
     .action-button {
@@ -798,13 +771,10 @@ footer {
 
     /* Profle Design (Large Screen) */
     /* #region */
-
-
     .profile-form{
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: auto;
         padding: 20px;
     }
     
@@ -820,11 +790,11 @@ footer {
         font-size: 17px;
         width: 150px;
         margin-right: 20px;
-        text-align: left;
+        text-align: right;
     }
     
     .profile-form-group input {
-        font-size: 17px;
+        font-size: 15px;
         flex-grow: 1;
         border-radius: 5px;
         color: black;
@@ -833,9 +803,6 @@ footer {
     
     .profile-form-group output{
         font-size: 17px;
-        flex-grow: 1;
-        align-self:auto;
-        margin-left: 30px;
     }
     
     .form-button{
@@ -854,8 +821,6 @@ footer {
         border-radius: 30px;
         height: auto;
         margin-block-start: auto;
-        cursor:pointer;
-    
     }
     
     #themeButtons{
