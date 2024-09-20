@@ -53,7 +53,6 @@ body {
     font-size: var(--font-size);
     z-index: 1001;
     /* ENSURE NAVBAR IS ABOVE ALL ELSE . */
-    outline: 1px solid var(--background-color);
 }
 
 .navbar-logo img {
@@ -80,18 +79,23 @@ body {
     background: hsl(188, 100%, .5);
 }
 
+
 .navbar-links,
-.navbar-search-button {
+.navbar-search button {
     display: flex;
     justify-content: center;
     text-align: center;
     margin: 7px 0;
     text-decoration: none;
+    color: var(--text-color);
     cursor: pointer;
+}
+
+.navbar-links {
     border-radius: 25px;
-    background-color: rgb(60, 60, 60);
+    background-color: var(--background-color);
     font-size: var(--font-size);
-    /* padding: 10px 0 10px 0; */
+    padding: 10px 0 10px 0;
     margin-right: 40%;
     margin-left: 30%;
     color: var(--text-color);
@@ -108,9 +112,8 @@ body {
     font-size: var(--font-size);
     padding: var(--button-padding);
     border-radius: 25px;
-    background-color: rgb(60, 60, 60);
+    background-color: var(--background-color);
     transition: background-color 0.3s ease;
-    color: var(--background-color);
 }
 
 .search-btn:hover {
@@ -134,6 +137,7 @@ body {
     font-size: var(--font-size);
     text-align: start;
 }
+
 
 /* #endregion */
 
@@ -178,48 +182,7 @@ h1 {
 .login-button:hover {
     background-color: var(--hover-color);
 }
-/* #endregion */
 
-/* MAIN.HTML CONTENT STYLE */
-/* #region */
-.button-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-content: space-between;
-    width: auto;
-    margin-left: 2%;
-}
-
-.action-button {
-    display: inline-block;
-    grid-row: 2;
-    padding: 10px 20px 10px 20px;
-    margin: 20px;
-    font-size: var(--font-size);
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: var(--text-color);
-    background-color: var(--main-color);
-    border-radius: 25px;
-    box-shadow: 0 9px var(--shadow-color);
-    transition: background-color 0.3s ease;
-}
-
-.action-button:hover {
-    background-color: var(--hover-color);
-}
-
-.action-button:active {
-    background-color: var(--hover-color);
-    box-shadow: 0 5px var(--shadow-color);
-}
-
-.no-save-found {
-    text-align: center;
-}
 /* #endregion */
 
 /* DECK DESIGN  */
@@ -248,8 +211,8 @@ h1 {
 }
 
 .button {
-    background-color: rgb(60, 60, 60);
-    color: rgb(255, 255, 255);
+    background-color: var(--background-color);
+    color: var(--text-color);
     padding: 10px 20px;
     cursor: pointer;
     text-decoration: none;
@@ -265,7 +228,7 @@ h1 {
 
 /* #endregion */
 
-/* CREATE CREATE STYLING*/
+/* Create a Card Form Style */
 /* #region */
 .create-container {
     display: flex;
@@ -291,6 +254,11 @@ h1 {
     text-align: left;
 }
 
+/* label[for=question] {
+    width:30%;
+    margin-right: 3px;
+} */
+
 .card-form-group input {
     width: 100%;
     height: 40px;
@@ -304,11 +272,11 @@ h1 {
     height: 80px;
     box-sizing: border-box;
     border: var(--border-color);
-    background-color: rgb(255, 255, 255);
+    background-color: var(--border-color);
+    text-emphasis-color: black;
     font-size: 16px;
     margin-left: 20px;
     resize: none;
-    outline: 1px solid var(--border-color);
 }
 
 .create-button {
@@ -320,7 +288,7 @@ h1 {
     cursor: pointer;
     border-radius: 25px;
     color: var(--text-color);
-    background-color: var(--main-color);
+    background-color: var(--background-color);
     transition: background-color 0.3s ease;
 }
 
@@ -338,6 +306,10 @@ label.importDeck {
     cursor:text;
 }
 
+#importDecksButton {
+    width: 140px;
+}
+
 span.import-container {
     float: inline-end;
     margin-left: 40px;
@@ -348,10 +320,9 @@ span.import-container {
     color: var(--text-color);
     text-align: center;
 }
-/* #endregion */
+
 
 /* Custom modal for prompt to confirm submission */
-/* #region */
 .custom-prompt-overlay {
     position: fixed;
     left: 0;
@@ -362,7 +333,6 @@ span.import-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1001;
 }
 
 .custom-prompt-content {
@@ -376,10 +346,8 @@ span.import-container {
     float: right;
     cursor: pointer;
 }
-/* #endregion */
 
 /* Custom modal for save/unsave function */
-/* #region */
 .modal {
     position: fixed;
     left: 0;
@@ -408,19 +376,65 @@ span.import-container {
     float: right;
     cursor: pointer;
 }
-/* #endregion */
 
-/* Footer */
+
+
+
+/* #endregion */
+/* da foot */
+
+/* MAIN.HTML CONTENT STYLE */
+/* #region */
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-content: space-between;
+    width: 100%;
+    margin-left: 2%;
+}
+
+.no-save-found {}
+
+
+.action-button {
+    display: inline-block;
+    grid-row: 2;
+    padding: 10px 20px 10px 20px;
+    margin: 20px;
+    font-size: var(--font-size);
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: var(--text-color);
+    background-color: var(--main-color);
+    border-radius: 25px;
+    box-shadow: 0 9px var(--shadow-color);
+    transition: background-color 0.3s ease;
+}
+
+
+.action-button:active {
+    background-color: var(--hover-color);
+    box-shadow: 0 5px var(--shadow-color);
+}
+
+.no-save-found {
+    text-align: center;
+}
+
+/* #endregion */
 footer {
     display: flex;
     justify-content: space-evenly;
     text-align: center;
     grid-row: 3;
+    margin-top: 20%;
     color: var(--text-color);
 }
 
-/* REVIEW FLASHCARD STYLING */
-/* #region */
+/* #region REVIEW FLASHCARD*/
 .flashcard-container {
     perspective: 1000px;
     display: flex;
@@ -451,7 +465,7 @@ footer {
     position: absolute;
     backface-visibility: hidden;
     border-radius: 20px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .frontofcard {
@@ -481,17 +495,23 @@ footer {
     justify-content: space-evenly;
 }
 
-.buttons>button {
+.buttons > button {
     height: 40px;
     width: 100px;
-    background-color: var(--main-color);
+    color: var(--text-color);
+    background-color: var(--background-color);
     border-radius: 20px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttons>button:hover {
+    background-color: var(--hover-color);
 }
 
 /* #endregion */
 
-/* SETTING PAGE STYLE */
+/* SETTING PAGE STYLE*/
 /* #region */
 .profile-form {
     padding: 20px;
@@ -518,7 +538,8 @@ footer {
 
 .profile-form-group input {
     font-size: var(--font-size);
-    color: black;
+    color: var(black);
+    background-color: var(--border-color);
     max-width: 350px;
     width: 100%;
     height: var(--button-size);
@@ -532,8 +553,8 @@ footer {
     width: 128px;
     height: var(--button-size);
     border-radius: 25px;
-    color:  rgb(255, 255, 255);
-    background-color: rgb(60, 60, 60);
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
 .button-edit:hover,
@@ -565,12 +586,18 @@ footer {
 
 .theme-card:hover {
     background-color: var(--hover-color);
+    /* Background color on hover */
 }
-
 /* #endregion */
 
 /* MEDIA QUERY FOR LARGER SCREENS */
 @media (min-width: 701px) {
+
+    #firebaseui-auth-container {
+        margin-top: 160px;
+        top: 0;
+    }
+
     .navbar {
         display: flex;
         overflow: hidden;
@@ -591,6 +618,7 @@ footer {
     .navbar-toggle {
         display: none;
     }
+
 
     .navbar-logo img {
         width: 75px;
@@ -617,7 +645,7 @@ footer {
     }
 
     .navbar-menu li:last-child a {
-        color: var(--background-color);
+        color: var(--);
         font-size: var(--font-size);
         margin-right: 10%;
     }
@@ -625,6 +653,7 @@ footer {
     .navbar-menu li:last-child a:hover {
         color: var(--hover-color);
         transition: color 0.3s ease;
+
     }
 
     .navbar-links {
@@ -661,15 +690,14 @@ footer {
         outline-color: var(--hover-color);
 
     }
-    
-    /* Cards Styling */
-    /* #region */
+
+    /* (Large Screen) Cards Styling Start Here */
     .cards-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 16px;
         width: auto;
+        padding: 16px;
     }
 
     .saved-cards {
@@ -687,7 +715,7 @@ footer {
     }
 
     .card {
-        margin: 4%;
+        margin: 10px;
         background-color: var(--main-color);
     }
 
@@ -702,17 +730,16 @@ footer {
     }
 
     .button {
-        background-color: rgb(60, 60, 60);
-        color:  var(--background-color);
-        padding: 10px 20px;
+        height: 40px;
+        width: 100px;
+        background-color: var(--background-color);
+        border-radius: 20px;
         cursor: pointer;
-        text-decoration: none;
-        text-align: center;
     }
-    /* #endregion */
 
-    /* FlashCardContainer */
-    /* #region */
+    /* Cards Styling End Here */
+
+    /* #region FlashCardContainer */
     .flashcard-container {
         perspective: 1000px;
         display: flex;
@@ -765,9 +792,10 @@ footer {
         margin: 0;
         padding: 10px;
     }
+
     /* #endregion */
 
-    /* Profle Design (Large Screen) */
+    /* Profile Layout (Large Screen) */
     /* #region */
     .profile-form{
         display: flex;
@@ -775,7 +803,7 @@ footer {
         align-items: center;
         padding: 20px;
     }
-    
+
     .profile-form-group {
         display: flex;
         flex-direction: row;
@@ -783,35 +811,39 @@ footer {
         margin-bottom: 20px;
         width: 50%;
     }
-    
-    .profile-form-group label{
+
+    .profile-form-group label {
         font-size: 17px;
-        width: 150px;
-        margin-right: 20px;
-        text-align: right;
+        align-items: center;
+        width: 80px;
+        height: var(--button-height);
+        font-size: var(--font-size);
+        text-align: center;
+        margin-bottom: 10px;
     }
-    
+
     .profile-form-group input {
-        font-size: 15px;
-        flex-grow: 1;
-        border-radius: 5px;
-        color: black;
+        font-size: var(--font-size);
+        color:black;
+        /* width: 100%; */
+        height: var(--button-height);
         text-align: left;
+        margin-left:40px;
+        margin-top: 10px;
+        border-radius: 5px;
     }
-    
-    .profile-form-group output{
-        font-size: 17px;
-        flex-grow: 1;
-        align-self:auto;
-        margin-left: 30px;
+
+    .profile-form-group output {
+        font-size: 30px;
+        margin-inline-start: 45px;
     }
-    
-    .form-button{
+
+    .form-button {
         display: flex;
         justify-content: center;
     }
-    
-    .form-button > button{
+
+    .form-button > button {
         margin: 5px;
         width: 100px;
         height: auto;
@@ -822,28 +854,32 @@ footer {
         border-radius: 30px;
         height: auto;
         margin-block-start: auto;
-        font-size: auto;
     }
-    
-    #themeButtons{
+
+    #themeButtons {
         display: flex;
         width: auto;
-        height: 100px;
+        height: var(--button-height);
         font-size: 10px;
+        height: 100px;
+        padding: 10px 10px;
         text-align: center;
+        margin-bottom: 80px;
     }
+
     .theme-card {
         display: inline-block;
         width: calc(33.33% - 20px);
         margin: 10px;
-        padding: 20px;
+        padding: 10px;
         background-color: var(--main-color);
         border-radius: 10px;
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
-    /* #endregion */
 
+    /* #endregion */
+    
     /* CREATE CARD FORM LARGE QUERY */
     /* #region */
     .create-container {
@@ -887,11 +923,16 @@ footer {
         height: 100px;
         box-sizing: border-box;
         border-color: var(--border-color);
-        background-color: var(--background-color);
+        background-color: var(--border-color);
         font-size: var(--font-size);
+        color: black;
         resize: none;
         scrollbar-color: var(--main-color);
     }
+    
+    /* textarea#question {
+        margin-left: 30px;
+    } */
 
     .create-button {
         margin-top: 20px;
@@ -902,7 +943,7 @@ footer {
         cursor: pointer;
         border-radius: 25px;
         color: var(--text-color);
-        background-color:  var(--main-color);
+        background-color: var(--background-color);
         transition: background-color 0.3s ease;
     }
 
@@ -921,7 +962,7 @@ footer {
         margin-right: 0;
         width: 25%;
         height: 40px;
-        background-color: var(--background-color);
+        background-color: var(--text-color);
         color: var(--shadow-color);
         cursor:text;
     }

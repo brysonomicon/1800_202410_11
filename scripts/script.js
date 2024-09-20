@@ -50,14 +50,16 @@ function setTheme(theme) {
   // Change the stylesheet link based on the selected theme
   var stylesheetLink = document.querySelector('link[href^="./styles"]');
   switch (theme) {
+      case 'default':
+          stylesheetLink.href = './styles/styles.css';
+          break;
       case 'light':
           stylesheetLink.href = './styles/light.css';
           break;
-      case 'bluey':
-          stylesheetLink.href = './styles/bluey.css';
+      case 'neon':
+          stylesheetLink.href = './styles/neon.css';
           break;
       default:
-          stylesheetLink.href = './styles/styles.css';
           break;
   }
 
