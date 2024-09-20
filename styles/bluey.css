@@ -52,7 +52,6 @@ body {
     padding: 10px;
     font-size: var(--font-size);
     z-index: 1001;
-    outline: 1px solid var(--background-color);
     /* ENSURE NAVBAR IS ABOVE ALL ELSE . */
     outline: 1px solid var(--background-color);
 }
@@ -148,7 +147,7 @@ main {
 }
 
 h1 {
-    padding: 20px;
+    padding-left: 15px;
 }
 
 #firebaseui-auth-container {
@@ -585,7 +584,7 @@ footer {
         font-size: var(--font-size);
         margin: 0;
         z-index: 1001;
-        height: 12vh;
+        height: 100px;
         outline: 1px solid var(--background-color);
     }
 
@@ -595,7 +594,7 @@ footer {
 
     .navbar-logo img {
         width: 75px;
-        padding: 10px;
+        padding-top:7px;
     }
 
     .navbar-menu {

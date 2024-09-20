@@ -153,7 +153,7 @@ main {
 }
 
 h1 {
-    padding: 20px;
+    padding-left: 15px;
 }
 
 #firebaseui-auth-container {
@@ -176,6 +176,7 @@ h1 {
     font-size: 20px;
     padding: 10px 20px 10px 20px;
     color: var(--text-color);
+    margin-left: 20px;
     background-color: var(--main-color);
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -423,7 +424,7 @@ footer {
     justify-content: space-evenly;
     text-align: center;
     grid-row: 3;
-    color: #f8f9f2;
+    color: var(--text-color);
 }
 
 /* REVIEW FLASHCARD STYLING */
@@ -591,7 +592,7 @@ footer {
         font-size: var(--font-size);
         margin: 0;
         z-index: 1001;
-        height: 12vh;
+        height: 100px;
         outline: 1px solid var(--background-color);
     }
 
@@ -601,7 +602,7 @@ footer {
 
     .navbar-logo img {
         width: 75px;
-        padding: 10px;
+        padding-top: 7px;
     }
 
     .navbar-menu {

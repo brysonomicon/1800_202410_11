@@ -1,24 +1,3 @@
-/* #708090 (slate grey) #FFDAB9(peach) #F2F2F2 (light grey) #333333(dark grey) */
-
-
-/* Styles for light mode */
-/* body {
-  background-color: #ffdab9;
-  color: #FFFFFF; 
-}
-
-.theme-card {
-  background-color: #ffdab9;
-}
-
-.theme-card:hover {
-  background-color: #e0e0e0;
-} */
-
-
-/* THIS IS DEFAULT STYLESHEET */
-/* MOBILE FIRST MEDIA QUERY */
-
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
@@ -169,7 +148,7 @@ main {
 }
 
 h1 {
-    padding: 20px;
+    padding-left: 15px;
 }
 
 #firebaseui-auth-container {
@@ -622,7 +601,7 @@ footer {
 
     .navbar-logo img {
         width: 75px;
-        padding: 10px;
+        padding-top: 7px;
     }
 
     .navbar-menu {
