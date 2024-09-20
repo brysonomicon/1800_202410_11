@@ -176,7 +176,6 @@ h1 {
     font-size: 20px;
     padding: 10px 20px 10px 20px;
     color: var(--text-color);
-    margin-left: 20px;
     background-color: var(--main-color);
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -424,7 +423,7 @@ footer {
     justify-content: space-evenly;
     text-align: center;
     grid-row: 3;
-    color: var(--text-color);
+    color: #f8f9f2;
 }
 
 /* REVIEW FLASHCARD STYLING */
@@ -592,7 +591,7 @@ footer {
         font-size: var(--font-size);
         margin: 0;
         z-index: 1001;
-        height: 100px;
+        height: 12vh;
         outline: 1px solid var(--background-color);
     }
 
@@ -602,7 +601,7 @@ footer {
 
     .navbar-logo img {
         width: 75px;
-        padding-top: 7px;
+        padding: 10px;
     }
 
     .navbar-menu {
@@ -784,7 +783,6 @@ footer {
         padding: 20px;
     }
     
-    
     .profile-form-group {
         display: flex;
         flex-direction: row;
@@ -794,42 +792,31 @@ footer {
     }
     
     .profile-form-group label{
-    
-    .profile-form-group label{
         font-size: 17px;
-        align-items: center;
-        width: 80px;
-        height: var(--button-height);
-        font-size: var(--font-size);
-        text-align: center;
-        margin-bottom: 10px;
+        width: 150px;
+        margin-right: 20px;
+        text-align: right;
     }
     
-    
     .profile-form-group input {
-        font-size: var(--font-size);
-        color: var(--background-color);
-        /* width: 100%; */
-        height: var(--button-height);
-        text-align: left;
+        font-size: 15px;
+        flex-grow: 1;
+        border-radius: 5px;
         color: black;
         text-align: left;
     }
     
     .profile-form-group output{
         font-size: 17px;
+        flex-grow: 1;
         align-self:auto;
         margin-left: 30px;
     }
     
     .form-button{
-    
-    .form-button{
         display: flex;
         justify-content: center;
     }
-    
-    .form-button > button{
     
     .form-button > button{
         margin: 5px;
@@ -845,24 +832,16 @@ footer {
     }
     
     #themeButtons{
-    
-    #themeButtons{
         display: flex;
         width: auto;
         height: 100px;
         font-size: 10px;
-        font-size: 10px;
-        height: 100px;
-        padding: 10px 10px;
         text-align: center;
-        margin-bottom: 80px;
     }
-
     .theme-card {
         display: inline-block;
         width: calc(33.33% - 20px);
         margin: 10px;
-        padding: 20px;
         padding: 20px;
         background-color: var(--main-color);
         border-radius: 10px;
@@ -914,7 +893,7 @@ footer {
         height: 100px;
         box-sizing: border-box;
         border-color: var(--border-color);
-        background-color: var(--text-color);
+        background-color: var(--background-color);
         font-size: var(--font-size);
         resize: none;
         scrollbar-color: var(--main-color);

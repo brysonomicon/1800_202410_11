@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --background-color: white;
-  /* sky blue*/
-  --border-color: #93C4E9;
+    --background-color: white;
+    /* sky blue*/
+    --border-color: #93C4E9;
     /* gold */
     --main-color: #428CC4;
     /* adjusted for nav border lines */
@@ -52,6 +52,7 @@ body {
     padding: 10px;
     font-size: var(--font-size);
     z-index: 1001;
+    outline: 1px solid var(--background-color);
     /* ENSURE NAVBAR IS ABOVE ALL ELSE . */
     outline: 1px solid var(--background-color);
 }
@@ -178,6 +179,7 @@ h1 {
 .login-button:hover {
     background-color: var(--hover-color);
 }
+
 /* #endregion */
 
 /* MAIN.HTML CONTENT STYLE */
@@ -220,6 +222,7 @@ h1 {
 .no-save-found {
     text-align: center;
 }
+
 /* #endregion */
 
 /* DECK DESIGN  */
@@ -233,7 +236,7 @@ h1 {
 
 .cards-column {
     display: flex;
-    position:wrap;
+    position: wrap;
     margin-bottom: 10px;
     width: 90%;
     padding: 16px;
@@ -335,7 +338,7 @@ label.importDeck {
     height: 40px;
     background-color: var(--text-color);
     color: var(--shadow-color);
-    cursor:text;
+    cursor: text;
 }
 
 span.import-container {
@@ -348,6 +351,7 @@ span.import-container {
     color: var(--text-color);
     text-align: center;
 }
+
 /* #endregion */
 
 /* Custom modal for prompt to confirm submission */
@@ -376,6 +380,7 @@ span.import-container {
     float: right;
     cursor: pointer;
 }
+
 /* #endregion */
 
 /* Custom modal for save/unsave function */
@@ -408,6 +413,7 @@ span.import-container {
     float: right;
     cursor: pointer;
 }
+
 /* #endregion */
 
 /* Footer */
@@ -451,7 +457,7 @@ footer {
     position: absolute;
     backface-visibility: hidden;
     border-radius: 20px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .frontofcard {
@@ -518,8 +524,7 @@ footer {
 
 .profile-form-group input {
     font-size: var(--font-size);
-    color: var(black);
-    background-color: var(--border-color);
+    color: black;
     max-width: 350px;
     width: 100%;
     height: var(--button-size);
@@ -533,7 +538,7 @@ footer {
     width: 128px;
     height: var(--button-size);
     border-radius: 25px;
-    color:  rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     background-color: rgb(60, 60, 60);
 }
 
@@ -585,7 +590,7 @@ footer {
         font-size: var(--font-size);
         margin: 0;
         z-index: 1001;
-        height: 100px;
+        height: 12vh;
         outline: 1px solid var(--background-color);
     }
 
@@ -595,7 +600,7 @@ footer {
 
     .navbar-logo img {
         width: 75px;
-        padding-top:7px;
+        padding: 10px;
     }
 
     .navbar-menu {
@@ -656,13 +661,13 @@ footer {
         margin-right: 20px;
         font-size: var(--font-size);
         border-radius: 15px;
-        text-align:justify;
+        text-align: justify;
         min-width: 200px;
         width: 100%;
         outline-color: var(--hover-color);
 
     }
-    
+
     /* Cards Styling */
     /* #region */
     .cards-container {
@@ -704,12 +709,13 @@ footer {
 
     .button {
         background-color: rgb(60, 60, 60);
-        color:  var(--background-color);
+        color: var(--background-color);
         padding: 10px 20px;
         cursor: pointer;
         text-decoration: none;
         text-align: center;
     }
+
     /* #endregion */
 
     /* FlashCardContainer */
@@ -766,11 +772,12 @@ footer {
         margin: 0;
         padding: 10px;
     }
+
     /* #endregion */
 
     /* Profle Design (Large Screen) */
     /* #region */
-    .profile-form{
+    .profile-form {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -787,28 +794,24 @@ footer {
 
     .profile-form-group label {
         font-size: 17px;
-        align-items: center;
-        width: 80px;
-        height: var(--button-height);
-        font-size: var(--font-size);
-        text-align: center;
-        margin-bottom: 10px;
+        width: 150px;
+        margin-right: 20px;
+        text-align: right;
     }
 
     .profile-form-group input {
-        font-size: var(--font-size);
-        color:black;
-        /* width: 100%; */
-        height: var(--button-height);
-        text-align: left;
-        margin-left:40px;
-        margin-top: 10px;
+        font-size: 15px;
+        flex-grow: 1;
         border-radius: 5px;
+        color: black;
+        text-align: left;
     }
 
     .profile-form-group output {
-        font-size: 30px;
-        margin-inline-start: 45px;
+        font-size: 17px;
+        flex-grow: 1;
+        align-self: auto;
+        margin-left: 30px;
     }
 
     .form-button {
@@ -816,7 +819,7 @@ footer {
         justify-content: center;
     }
 
-    .form-button > button {
+    .form-button>button {
         margin: 5px;
         width: 100px;
         height: auto;
@@ -827,24 +830,22 @@ footer {
         border-radius: 30px;
         height: auto;
         margin-block-start: auto;
+        font-size: auto;
     }
 
     #themeButtons {
         display: flex;
         width: auto;
-        height: var(--button-height);
-        font-size: 10px;
         height: 100px;
-        padding: 10px 10px;
+        font-size: 10px;
         text-align: center;
-        margin-bottom: 80px;
     }
 
     .theme-card {
         display: inline-block;
         width: calc(33.33% - 20px);
         margin: 10px;
-        padding: 10px;
+        padding: 20px;
         background-color: var(--main-color);
         border-radius: 10px;
         cursor: pointer;
@@ -911,7 +912,7 @@ footer {
         cursor: pointer;
         border-radius: 25px;
         color: var(--text-color);
-        background-color:  var(--main-color);
+        background-color: var(--main-color);
         transition: background-color 0.3s ease;
     }
 
@@ -919,7 +920,7 @@ footer {
         background-color: var(--hover-color);
     }
 
-    .card-form-group > .button-container {
+    .card-form-group>.button-container {
         display: flex;
         flex-direction: row;
         margin-left: 20px;
@@ -932,7 +933,7 @@ footer {
         height: 40px;
         background-color: var(--background-color);
         color: var(--shadow-color);
-        cursor:text;
+        cursor: text;
     }
 
     #importDecksButton {
@@ -940,7 +941,7 @@ footer {
     }
 
     span.import-container {
-        float:right;
+        float: right;
         align-items: flex-end;
         position: static;
     }
