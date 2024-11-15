@@ -54,7 +54,6 @@ body {
     z-index: 1001;
     outline: 1px solid var(--background-color);
     /* ENSURE NAVBAR IS ABOVE ALL ELSE . */
-    outline: 1px solid var(--background-color);
 }
 
 .navbar-logo img {

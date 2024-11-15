@@ -387,6 +387,7 @@ span.import-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1002;
 }
 
 .custom-prompt-content {
@@ -414,7 +415,6 @@ span.import-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
     /* Ensure it's above other content */
 }
 
@@ -425,6 +425,7 @@ span.import-container {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 80%;
     max-width: 400px;
+    z-index: 1002;
     /* Adjust based on your preference */
 }
 
